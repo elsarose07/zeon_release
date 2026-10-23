@@ -168,7 +168,7 @@ export default function ProductPage() {
                 </div>
               </div>
               <a
-                href="https://zeon-9d9b5.web.app"
+                href="https://zeonapp.xeops.in"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex shrink-0 items-center gap-2 rounded-full border border-[#E8E6DF] bg-[#FAFAF8] px-6 py-2.5 text-sm font-medium text-[#141414] transition-all hover:bg-[#141414] hover:text-white hover:border-[#141414] active:scale-[0.98]"
