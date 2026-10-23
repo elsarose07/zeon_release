@@ -152,6 +152,7 @@ export default function ProductPage() {
             </div>
           </div>
 
+
           {/* Web App — Secondary Option */}
           <div className="mt-8 max-w-5xl mx-auto rounded-3xl border border-[#E8E6DF] bg-white p-8 sm:p-10 shadow-subtle">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
