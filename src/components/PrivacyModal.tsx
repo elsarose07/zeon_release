@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Shield,
@@ -18,6 +18,23 @@ interface PrivacyModalProps {
 }
 
 export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
+  // Close on Escape key and lock background scroll
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -174,7 +191,7 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
 
             {/* Modal Bottom Bar */}
             <div className="flex items-center justify-between border-t border-[#EFECE6] bg-[#FAFAF8] px-6 py-4 sm:px-8">
-              <span className="text-xs text-[#737373]">
+              <span className="text-xs text-[#737373]" suppressHydrationWarning>
                 © {new Date().getFullYear()} Zeon
               </span>
               <button

@@ -19,12 +19,20 @@ export default function HelpPage() {
 
   // Auto-play when lightbox opens, pause when closed
   useEffect(() => {
-    if (lightboxOpen && modalVideoRef.current) {
-      modalVideoRef.current.play();
+    if (lightboxOpen) {
+      document.body.style.overflow = "hidden";
+      if (modalVideoRef.current) {
+        modalVideoRef.current.play().catch(() => {});
+      }
+    } else {
+      document.body.style.overflow = "";
+      if (modalVideoRef.current) {
+        modalVideoRef.current.pause();
+      }
     }
-    if (!lightboxOpen && modalVideoRef.current) {
-      modalVideoRef.current.pause();
-    }
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [lightboxOpen]);
 
   // Close on Escape key

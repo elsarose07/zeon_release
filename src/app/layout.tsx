@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Instrument_Serif, Inter } from "next/font/google";
 import "./globals.css";
 
@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${instrumentSerif.variable} ${inter.variable}`}>
-      <body className="min-h-screen bg-[#FCFCF9] text-[#141414] antialiased selection:bg-amber-200 selection:text-black">
+      <body className="min-h-screen bg-white text-[#141414] antialiased selection:bg-amber-200 selection:text-black">
         {children}
       </body>
     </html>

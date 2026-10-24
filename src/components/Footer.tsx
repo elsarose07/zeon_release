@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -10,7 +10,7 @@ export function Footer() {
 
   return (
     <>
-      <footer className="border-t border-[#E8E6DF] bg-[#FCFCF9] py-8 text-[#5A5A5A]">
+      <footer className="border-t border-[#E8E6DF] bg-white py-8 text-[#5A5A5A]">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 sm:flex-row sm:px-10 lg:px-16">
           {/* Brand Logo */}
           <Link href="/" className="group">
@@ -25,7 +25,7 @@ export function Footer() {
 
           {/* Copyright and Privacy Modal Trigger */}
           <div className="flex items-center gap-6 text-xs text-[#737373]">
-            <p>© {new Date().getFullYear()} Zeon. All rights reserved.</p>
+            <p suppressHydrationWarning>© {new Date().getFullYear()} Zeon from Xeops. All rights reserved.</p>
             <button
               type="button"
               onClick={() => setPrivacyOpen(true)}
