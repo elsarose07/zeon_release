@@ -12,9 +12,10 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 10);
     };
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -32,10 +33,10 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`sticky top-0 z-40 w-full transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
           scrolled
-            ? "border-b border-black/5 bg-[#E2E6EB]/80 backdrop-blur-xl shadow-sm"
-            : "bg-transparent"
+            ? "border-b border-white/50 bg-[#C8CCD2]/65 backdrop-blur-xl shadow-[0_4px_24px_-4px_rgba(15,23,42,0.08)]"
+            : "border-b border-transparent bg-transparent"
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 sm:px-10 lg:px-14">
@@ -77,7 +78,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center">
             <Link
               href="/product"
-              className="group flex items-center gap-1.5 text-[15px] font-medium text-[#141414] transition-all duration-200 hover:opacity-80"
+              className="group inline-flex items-center gap-2 rounded-full border border-[#141414]/30 hover:border-[#141414] bg-white/35 hover:bg-white/70 px-4 py-1.5 text-[14px] font-medium text-[#141414] backdrop-blur-md shadow-[0_2px_8px_-2px_rgba(0,0,0,0.06)] hover:shadow transition-all duration-200 active:scale-[0.98]"
             >
               <span>Get started</span>
               <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -151,7 +152,7 @@ export function Navbar() {
                     <Link
                       href="/product"
                       onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center justify-between font-semibold text-[#141414] py-1"
+                      className="inline-flex items-center justify-between w-full rounded-full border border-[#141414]/30 bg-white/40 hover:bg-white/70 px-4 py-2 font-medium text-[#141414] backdrop-blur-sm shadow-sm transition-all duration-200"
                     >
                       <span>Get started</span>
                       <ArrowRight className="h-4 w-4" />
@@ -163,6 +164,9 @@ export function Navbar() {
           )}
         </AnimatePresence>
       </header>
+
+      {/* Document flow spacer to preserve layout spacing when header is fixed */}
+      <div className="h-[72px] sm:h-[76px] w-full shrink-0" aria-hidden="true" />
     </>
   );
 }
