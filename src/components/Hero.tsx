@@ -233,39 +233,38 @@ export function Hero() {
 
             {/* Headline */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.5, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
             >
               <h1
                 className="font-serif text-[52px] sm:text-[68px] lg:text-[76px] xl:text-[84px] font-bold tracking-[-0.025em] text-[#111111] leading-[0.96]"
               >
                 Zeon.
               </h1>
-              <span className="block font-serif text-[38px] sm:text-[48px] lg:text-[54px] xl:text-[60px] font-normal italic tracking-[-0.02em] text-[#3A3A3A] leading-[1.08] mt-1.5 sm:mt-2">
-                Everything in
-              </span>
-              <span className="block font-serif text-[38px] sm:text-[48px] lg:text-[54px] xl:text-[60px] font-normal italic tracking-[-0.02em] text-[#3A3A3A] leading-[1.08]">
-                one calm place.
-              </span>
+              <div className="font-canela text-[30px] sm:text-[38px] lg:text-[44px] xl:text-[48px] font-medium tracking-[-0.02em] text-[#6B7280] leading-[1.14] mt-2.5 sm:mt-3">
+                <span className="block">Everything your business needs.</span>
+                <span className="block text-[#6B7280]">One workspace.</span>
+              </div>
             </motion.div>
 
             {/* Subtitle */}
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-6 max-w-[420px] text-[15px] sm:text-[16px] leading-relaxed text-[#555] font-normal"
+              transition={{ duration: 0.5, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-6 max-w-[440px] text-[15px] sm:text-[16px] leading-relaxed text-[#4A4A4A] font-normal"
             >
-              ZEON brings your customers, orders, and team into one calm
-              workspace so your business can move forward without the clutter.
+              Bring your orders, customers, inventory, and team together in one
+              seamless workspace. Stay organized, simplify daily operations, and
+              focus on growing your business.
             </motion.p>
 
             {/* CTA Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.5, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
               className="mt-7 flex items-center gap-4"
             >
               {/* Get started */}

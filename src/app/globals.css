@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Canela';
+  font-style: normal;
+  font-weight: 300 800;
+  src: local('Canela'), local('Canela-Regular'), local('Canela-Medium'), local('Canela-Bold'), local('Canela Deck');
+}
+
 :root {
   --background: #FFFFFF;
   --foreground: #141414;
