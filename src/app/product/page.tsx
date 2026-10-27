@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
@@ -23,19 +23,25 @@ export const metadata: Metadata = {
 
 export default function ProductPage() {
   return (
-    <div className="relative min-h-screen bg-[#FCFCF9] text-[#141414] flex flex-col justify-between overflow-hidden">
-      {/* Ambient Lighting Backdrop */}
-      <div className="pointer-events-none absolute inset-0 -z-10 ambient-glow" />
-
+    <div
+      className="relative min-h-screen text-[#141414] flex flex-col justify-between overflow-hidden"
+      style={{
+        background: `
+          radial-gradient(ellipse 70% 65% at 68% 42%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.18) 38%, transparent 68%),
+          radial-gradient(ellipse 50% 40% at 30% 18%, rgba(255,255,255,0.22) 0%, transparent 65%),
+          linear-gradient(160deg, #C6CAD0 0%, #BCC1C7 28%, #B4B9C0 60%, #ABB0B7 100%)
+        `,
+      }}
+    >
       <div>
         <Navbar />
 
-        <main className="mx-auto max-w-6xl px-6 py-12 sm:px-10 lg:px-8 lg:py-16">
+        <main className="mx-auto max-w-6xl px-6 pt-28 pb-16 sm:px-10 sm:pt-32 sm:pb-20 lg:px-8 lg:pt-36 lg:pb-24">
           {/* Hero Section */}
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-normal tracking-tight text-[#141414] leading-[1.02]">
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#111111] leading-[1.02]">
               One platform. <br />
-              <span className="italic text-[#737373]">Built for every device.</span>
+              <span className="italic text-[#5A5A5A]">Built for every device.</span>
             </h1>
 
             <p className="mt-6 text-base sm:text-lg leading-relaxed text-[#4A4A4A] text-balance">
