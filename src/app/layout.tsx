@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Fraunces, Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
+import { CursorWaves } from "@/components/CursorWaves";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -42,6 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${fraunces.variable} ${plusJakarta.variable} ${inter.variable}`}>
       <body className="min-h-screen bg-white text-[#141414] antialiased selection:bg-amber-200 selection:text-black">
+        <CursorWaves />
         {children}
       </body>
     </html>
