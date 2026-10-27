@@ -224,7 +224,7 @@ function TiltCard({ children, baseRotate, className = "", style }: TiltCardProps
 
 export function Hero() {
   return (
-    <section className="relative overflow-visible min-h-[calc(100vh-5rem)] flex flex-col justify-center pt-4 pb-14 sm:pt-6 sm:pb-16 lg:pt-8 lg:pb-20">
+    <section className="relative overflow-visible min-h-[calc(100vh-72px)] sm:min-h-[calc(100vh-76px)] flex flex-col justify-center pt-4 pb-6 sm:pt-6 sm:pb-8 lg:pt-8 lg:pb-10">
       <div className="w-full mx-auto max-w-7xl px-6 sm:px-10 lg:px-14">
         <div className="grid grid-cols-1 items-center gap-4 lg:grid-cols-12 lg:gap-0">
 

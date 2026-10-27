@@ -8,78 +8,104 @@ import mobileImg from "../../public/mobile_preview.png";
 
 export function AppPreview() {
   return (
-    <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 lg:pt-32 pb-28 sm:pb-36 md:pb-44 lg:pb-48 overflow-x-clip">
-      {/* Container wrapper providing side breathing room for the mobile phone */}
-      <div className="relative pl-3 sm:pl-6 md:pl-16 lg:pl-20 pr-1 sm:pr-2 md:pr-4 lg:pr-6">
-        {/* Main Desktop Window Frame */}
+    <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 lg:pt-10 pb-28 sm:pb-36 md:pb-44 lg:pb-48 overflow-x-clip">
+      {/* Container wrapper */}
+      <div className="relative pl-1 sm:pl-3 md:pl-5 pr-5 sm:pr-8 md:pr-12 lg:pr-14">
+        {/* Main Laptop & Phone Mockup Showcase */}
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="relative rounded-3xl border border-[#E5E2DA] bg-white p-2 sm:p-3.5 shadow-hero-mockup backdrop-blur-md"
+          className="relative mx-auto"
         >
-          {/* Top Window Bar */}
-          <div className="relative overflow-hidden rounded-2xl border border-[#ECE9E2] bg-[#FAFAF8]">
-            <div className="flex items-center justify-between border-b border-[#EAE7E0] bg-white px-4 py-3 sm:px-6">
-              {/* Window Controls & Title */}
-              <div className="flex items-center gap-3">
-                <div className="flex gap-1.5">
-                  <div className="h-2.5 w-2.5 rounded-full bg-[#E5E5E5] transition-colors hover:bg-[#D5D5D5]" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-[#E5E5E5] transition-colors hover:bg-[#D5D5D5]" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-[#E5E5E5] transition-colors hover:bg-[#D5D5D5]" />
-                </div>
-                <div className="h-4 w-px bg-[#EAE7E0] hidden sm:block" />
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-semibold text-[#141414] tracking-wide">
-                    ZEON
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-0.5 text-[10px] font-medium text-emerald-700 border border-emerald-200/60 shadow-sm">
-                    <span className="relative flex h-1.5 w-1.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
-                    </span>
-                    Live Sync Active
-                  </span>
+          {/* ─── LAPTOP UNIT ─── */}
+          <div className="relative mx-auto w-full">
+            {/* LAPTOP LID / SCREEN */}
+            <div className="relative mx-auto rounded-t-[18px] sm:rounded-t-[24px] md:rounded-t-[28px] border-[5px] sm:border-[8px] md:border-[10px] border-[#0D0D11] bg-[#0D0D11] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.4)] ring-1 ring-white/10 ring-offset-1 ring-offset-[#9CA3AF]/60">
+              {/* Top Camera Notch (MacBook style) */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 z-30 h-3.5 sm:h-4.5 md:h-5 w-24 sm:w-32 md:w-36 rounded-b-md sm:rounded-b-lg bg-[#0D0D11] flex items-center justify-center">
+                {/* Webcam Lens */}
+                <div className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-[#18181C] ring-1 ring-white/15 flex items-center justify-center">
+                  <div className="h-0.5 w-0.5 rounded-full bg-[#2563EB]/40" />
                 </div>
               </div>
 
-              {/* Platform indicator badge */}
-              <div className="flex items-center gap-2 text-xs text-[#737373]">
-                <span className="hidden sm:inline font-medium text-[11px] uppercase tracking-wider text-[#8A8A8A]">
-                  Windows Desktop &amp; Android Client
-                </span>
+              {/* Screen Display Content */}
+              <div className="relative overflow-hidden rounded-t-[12px] sm:rounded-t-[16px] md:rounded-t-[18px] bg-[#FAFAF8]">
+                {/* Top Window Bar */}
+                <div className="flex items-center justify-between border-b border-[#EAE7E0] bg-white px-3 sm:px-5 py-2.5 sm:py-3">
+                  {/* Window Controls & Title */}
+                  <div className="flex items-center gap-3">
+                    <div className="flex gap-1.5">
+                      <div className="h-2.5 w-2.5 rounded-full bg-[#E5E5E5] transition-colors hover:bg-[#D5D5D5]" />
+                      <div className="h-2.5 w-2.5 rounded-full bg-[#E5E5E5] transition-colors hover:bg-[#D5D5D5]" />
+                      <div className="h-2.5 w-2.5 rounded-full bg-[#E5E5E5] transition-colors hover:bg-[#D5D5D5]" />
+                    </div>
+                    <div className="h-4 w-px bg-[#EAE7E0] hidden sm:block" />
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-semibold text-[#141414] tracking-wide">
+                        ZEON
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-0.5 text-[10px] font-medium text-emerald-700 border border-emerald-200/60 shadow-sm">
+                        <span className="relative flex h-1.5 w-1.5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
+                        </span>
+                        Live Sync Active
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Platform indicator badge */}
+                  <div className="flex items-center gap-2 text-xs text-[#737373]">
+                    <span className="hidden sm:inline font-medium text-[11px] uppercase tracking-wider text-[#8A8A8A]">
+                      Windows Desktop &amp; Android Client
+                    </span>
+                  </div>
+                </div>
+
+                {/* Desktop Screenshot */}
+                <div className="relative w-full overflow-hidden bg-[#FDFDFB]">
+                  <Image
+                    src={desktopImg}
+                    alt="ZEON Desktop Workspace Preview"
+                    className="w-full h-auto object-cover object-top"
+                    priority
+                  />
+                </div>
               </div>
             </div>
 
-            {/* Desktop Screenshot */}
-            <div className="relative w-full overflow-hidden bg-[#FDFDFB]">
-              <Image
-                src={desktopImg}
-                alt="ZEON Desktop Workspace Preview"
-                className="w-full h-auto object-cover object-top"
-                priority
-              />
+            {/* LAPTOP LOWER CHASSIS / BASE */}
+            <div className="relative -mx-2 sm:-mx-3 md:-mx-4 z-10">
+              {/* Sleek Silver Aluminium Unibody Base */}
+              <div className="h-3 sm:h-4 md:h-5 w-full rounded-b-[10px] sm:rounded-b-[14px] md:rounded-b-[18px] bg-gradient-to-b from-[#E4E7EC] via-[#CFD4DC] to-[#A8AEB8] border-t border-white/80 border-b border-[#7A828E] shadow-[0_4px_12px_rgba(0,0,0,0.18)] flex items-start justify-center">
+                {/* Thumb Opening Notch / Groove in Center */}
+                <div className="h-1.5 sm:h-2 w-16 sm:w-22 md:w-28 rounded-b-md bg-[#8E95A1] shadow-[inset_0_1px_2px_rgba(0,0,0,0.35)]" />
+              </div>
+
+              {/* Soft Contact Ground Shadow below Laptop */}
+              <div className="w-[96%] mx-auto h-4 sm:h-6 bg-black/25 blur-lg rounded-full -mt-1 sm:-mt-1.5 pointer-events-none" />
             </div>
           </div>
 
-          {/* Overlapping Mobile Phone Mockup at the LEFT SIDE of the Windows App */}
+          {/* ─── MOBILE PHONE MOCKUP (RIGHT SIDE, AS IN REFERENCE) ─── */}
           <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.96 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
             whileHover={{ y: -6, transition: { duration: 0.25 } }}
-            className="absolute top-[38%] sm:top-[39%] -left-3 sm:-left-6 md:-left-12 lg:-left-16 z-20 w-[135px] sm:w-[180px] md:w-[215px] lg:w-[235px] rounded-[28px] sm:rounded-[38px] border-[6px] sm:border-[8px] border-[#141414] bg-[#141414] shadow-[0_25px_60px_-12px_rgba(0,0,0,0.45)] ring-1 ring-black/10"
+            className="absolute bottom-0 sm:bottom-0.5 md:bottom-1 -right-2 sm:-right-4 md:-right-6 lg:-right-7 z-30 w-[130px] sm:w-[175px] md:w-[215px] lg:w-[245px] rounded-[26px] sm:rounded-[36px] md:rounded-[40px] border-[5px] sm:border-[7px] md:border-[8px] border-[#0D0D11] bg-[#0D0D11] shadow-[-22px_12px_40px_rgba(0,0,0,0.48),0_25px_50px_-10px_rgba(0,0,0,0.45)] ring-1 ring-white/10"
           >
-            {/* Top Notch / Camera Pill */}
-            <div className="absolute top-1.5 sm:top-2 left-1/2 -translate-x-1/2 z-30 h-3 sm:h-4 w-16 sm:w-22 rounded-full bg-[#141414] flex items-center justify-center">
-              <div className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-[#2E2E2E] mr-1.5 sm:mr-2" />
-              <div className="h-1 sm:h-1.5 w-6 sm:w-7 rounded-full bg-[#2A2A2A]" />
+            {/* Dynamic Island Pill at Top Center */}
+            <div className="absolute top-1.5 sm:top-2 left-1/2 -translate-x-1/2 z-40 h-3 sm:h-4 w-12 sm:w-18 md:w-20 rounded-full bg-black flex items-center justify-end pr-1.5 sm:pr-2">
+              <div className="h-1 w-1 sm:h-1.5 sm:w-1.5 rounded-full bg-[#18181C]" />
             </div>
 
             {/* Phone Screen displaying mobile app preview */}
-            <div className="relative overflow-hidden rounded-[20px] sm:rounded-[28px] bg-white">
+            <div className="relative overflow-hidden rounded-[20px] sm:rounded-[28px] md:rounded-[32px] bg-white">
               <Image
                 src={mobileImg}
                 alt="ZEON Mobile App Preview"
