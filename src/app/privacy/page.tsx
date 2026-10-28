@@ -20,10 +20,16 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="relative min-h-screen bg-[#FCFCF9] text-[#141414] flex flex-col justify-between overflow-hidden">
-      {/* Ambient Backdrop */}
-      <div className="pointer-events-none absolute inset-0 -z-10 ambient-glow" />
-
+    <div
+      className="relative min-h-screen text-[#141414] flex flex-col justify-between overflow-hidden"
+      style={{
+        background: `
+          radial-gradient(ellipse 70% 65% at 68% 42%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.18) 38%, transparent 68%),
+          radial-gradient(ellipse 50% 40% at 30% 18%, rgba(255,255,255,0.22) 0%, transparent 65%),
+          linear-gradient(160deg, #C6CAD0 0%, #BCC1C7 28%, #B4B9C0 60%, #ABB0B7 100%)
+        `,
+      }}
+    >
       <div>
         <Navbar />
 

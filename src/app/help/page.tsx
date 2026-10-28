@@ -15,19 +15,30 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function HelpPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const inlineVideoRef = useRef<HTMLVideoElement>(null);
   const modalVideoRef = useRef<HTMLVideoElement>(null);
 
-  // Auto-play when lightbox opens, pause when closed
+  // Auto-play modal when lightbox opens, pause inline video, sync playback position
   useEffect(() => {
     if (lightboxOpen) {
       document.body.style.overflow = "hidden";
+      if (inlineVideoRef.current) {
+        inlineVideoRef.current.pause();
+      }
       if (modalVideoRef.current) {
+        if (inlineVideoRef.current) {
+          modalVideoRef.current.currentTime = inlineVideoRef.current.currentTime;
+        }
         modalVideoRef.current.play().catch(() => {});
       }
     } else {
       document.body.style.overflow = "";
       if (modalVideoRef.current) {
         modalVideoRef.current.pause();
+        if (inlineVideoRef.current) {
+          inlineVideoRef.current.currentTime = modalVideoRef.current.currentTime;
+          inlineVideoRef.current.play().catch(() => {});
+        }
       }
     }
     return () => {
@@ -45,10 +56,16 @@ export default function HelpPage() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#FCFCF9] text-[#141414] flex flex-col justify-between overflow-hidden">
-      {/* Ambient Lighting Backdrop */}
-      <div className="pointer-events-none absolute inset-0 -z-10 ambient-glow" />
-
+    <div
+      className="relative min-h-screen text-[#141414] flex flex-col justify-between overflow-hidden"
+      style={{
+        background: `
+          radial-gradient(ellipse 70% 65% at 68% 42%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.18) 38%, transparent 68%),
+          radial-gradient(ellipse 50% 40% at 30% 18%, rgba(255,255,255,0.22) 0%, transparent 65%),
+          linear-gradient(160deg, #C6CAD0 0%, #BCC1C7 28%, #B4B9C0 60%, #ABB0B7 100%)
+        `,
+      }}
+    >
       <div>
         <Navbar />
 
@@ -65,6 +82,7 @@ export default function HelpPage() {
             <div className="relative overflow-hidden rounded-3xl border border-[#E8E6DF] bg-white p-3 sm:p-4 shadow-hero-mockup">
               <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-[#141414]">
                 <video
+                  ref={inlineVideoRef}
                   className="w-full h-full object-cover"
                   src="/Zeondemo.mp4"
                   autoPlay

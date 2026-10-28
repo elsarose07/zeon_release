@@ -114,7 +114,7 @@ export function Navbar() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setMobileMenuOpen(false)}
-                className="fixed inset-0 top-[69px] z-30 bg-black/20 backdrop-blur-sm md:hidden"
+                className="fixed inset-0 top-[72px] sm:top-[76px] z-30 bg-black/20 backdrop-blur-sm md:hidden"
               />
 
               {/* Mobile Drawer */}

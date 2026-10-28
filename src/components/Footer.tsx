@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -25,7 +25,7 @@ export function Footer() {
 
           {/* Copyright and Privacy Modal Trigger */}
           <div className="flex items-center gap-6 text-xs text-[#737373]">
-            <p suppressHydrationWarning>© {new Date().getFullYear()} Zeon from Xeops. All rights reserved.</p>
+            <p suppressHydrationWarning>© {new Date().getFullYear()} Zeon. All rights reserved.</p>
             <button
               type="button"
               onClick={() => setPrivacyOpen(true)}
