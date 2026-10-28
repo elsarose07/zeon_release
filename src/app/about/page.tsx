@@ -1,15 +1,15 @@
-﻿import React from "react";
+import React from "react";
+import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import {
   Mail,
   Phone,
-  Sparkles,
   Layers,
-  HeartHandshake,
   ShieldCheck,
-  Zap,
+  CheckCircle2,
   Globe,
+  ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -20,19 +20,25 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="relative min-h-screen bg-[#FCFCF9] text-[#141414] flex flex-col justify-between overflow-hidden">
-      {/* Ambient Lighting Backdrop */}
-      <div className="pointer-events-none absolute inset-0 -z-10 ambient-glow" />
-
+    <div
+      className="relative min-h-screen text-[#141414] flex flex-col justify-between overflow-hidden"
+      style={{
+        background: `
+          radial-gradient(ellipse 70% 65% at 68% 42%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.18) 38%, transparent 68%),
+          radial-gradient(ellipse 50% 40% at 30% 18%, rgba(255,255,255,0.22) 0%, transparent 65%),
+          linear-gradient(160deg, #C6CAD0 0%, #BCC1C7 28%, #B4B9C0 60%, #ABB0B7 100%)
+        `,
+      }}
+    >
       <div>
         <Navbar />
 
-        <main className="mx-auto max-w-5xl px-6 py-12 sm:px-10 lg:px-8 lg:py-16">
+        <main className="mx-auto max-w-6xl px-6 pt-28 pb-16 sm:px-10 sm:pt-32 sm:pb-20 lg:px-8 lg:pt-36 lg:pb-24">
           {/* Hero Section */}
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-normal tracking-tight text-[#141414] leading-[1.02]">
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#111111] leading-[1.02]">
               Building tools with <br />
-              <span className="italic text-[#737373]">clarity and purpose.</span>
+              <span className="italic text-[#5A5A5A]">clarity and purpose.</span>
             </h1>
 
             <p className="mt-6 text-base sm:text-lg leading-relaxed text-[#4A4A4A] text-balance">
@@ -40,70 +46,173 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Core Principles Grid */}
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="rounded-3xl border border-[#E8E6DF] bg-white p-7 shadow-subtle transition-all hover:border-[#D5D0C5] hover:shadow-md">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#F4F4F0] text-[#141414] mb-5">
-                <Layers className="h-5 w-5" />
+          {/* Dual Primary Cards Grid */}
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* 1. Philosophy & Mission Card */}
+            <div className="relative flex flex-col justify-between rounded-3xl border border-[#E8E6DF] bg-white p-8 sm:p-10 shadow-hero-mockup transition-all hover:border-[#D5D0C5] hover:shadow-xl">
+              <div>
+                {/* Header Icon */}
+                <div className="flex items-center justify-between">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#141414] text-white shadow-md">
+                    <Layers className="h-7 w-7" />
+                  </div>
+                </div>
+
+                <div className="mt-6">
+                  <h2 className="text-2xl font-bold text-[#141414]">
+                    Philosophy &amp; Mission
+                  </h2>
+                  <p className="mt-1 text-xs text-[#737373]">
+                    Simplicity First • Distraction-Free Workspaces
+                  </p>
+                </div>
+
+                <p className="mt-4 text-sm text-[#4A4A4A] leading-relaxed">
+                  We craft thoughtful interfaces that eliminate noise, letting you focus entirely on moving your business forward with speed and confidence.
+                </p>
+
+                {/* Key Points List */}
+                <ul className="mt-6 space-y-2.5 text-xs text-[#4A4A4A]">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                    <span>Calm, distraction-free design eliminating operational clutter</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                    <span>Zero learning curve with intuitive and modern workflows</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                    <span>High-throughput performance across desktop and mobile</span>
+                  </li>
+                </ul>
               </div>
-              <h3 className="text-base font-bold text-[#141414]">
-                Simplicity First
-              </h3>
-              <p className="mt-2 text-xs sm:text-sm text-[#5A5A5A] leading-relaxed">
-                We craft clean, thoughtful interfaces that eliminate noise, letting you focus entirely on your work.
-              </p>
+
+              {/* Action Area */}
+              <div className="mt-8 pt-6 border-t border-[#EFECE6]">
+                <a
+                  href="mailto:johan.manojp@gmail.com"
+                  className="group flex w-full items-center justify-center gap-2.5 rounded-full bg-[#141414] px-6 py-3.5 text-sm font-medium text-white shadow-sm transition-all hover:bg-[#262626] active:scale-[0.98]"
+                >
+                  <Mail className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
+                  <span>Email: johan.manojp@gmail.com</span>
+                </a>
+              </div>
             </div>
 
-            <div className="rounded-3xl border border-[#E8E6DF] bg-white p-7 shadow-subtle transition-all hover:border-[#D5D0C5] hover:shadow-md">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#F4F4F0] text-[#141414] mb-5">
-                <Zap className="h-5 w-5" />
-              </div>
-              <h3 className="text-base font-bold text-[#141414]">
-                Engineered for Speed
-              </h3>
-              <p className="mt-2 text-xs sm:text-sm text-[#5A5A5A] leading-relaxed">
-                Fast interactions, instant cloud synchronization, and responsive feedback across desktop and mobile.
-              </p>
-            </div>
+            {/* 2. Trust & Direct Support Card */}
+            <div className="relative flex flex-col justify-between rounded-3xl border border-[#E8E6DF] bg-white p-8 sm:p-10 shadow-hero-mockup transition-all hover:border-[#D5D0C5] hover:shadow-xl">
+              <div>
+                {/* Header Icon */}
+                <div className="flex items-center justify-between">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#141414] text-white shadow-md">
+                    <ShieldCheck className="h-7 w-7" />
+                  </div>
+                </div>
 
-            <div className="rounded-3xl border border-[#E8E6DF] bg-white p-7 shadow-subtle transition-all hover:border-[#D5D0C5] hover:shadow-md sm:col-span-2 lg:col-span-1">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#F4F4F0] text-[#141414] mb-5">
-                <ShieldCheck className="h-5 w-5" />
+                <div className="mt-6">
+                  <h2 className="text-2xl font-bold text-[#141414]">
+                    Trust &amp; Direct Support
+                  </h2>
+                  <p className="mt-1 text-xs text-[#737373]">
+                    Security Standards • Direct Personal Assistance
+                  </p>
+                </div>
+
+                <p className="mt-4 text-sm text-[#4A4A4A] leading-relaxed">
+                  Rigorous security standards, data privacy, and reliable architecture combined with personal, high-touch support whenever you need help.
+                </p>
+
+                {/* Key Points List */}
+                <ul className="mt-6 space-y-2.5 text-xs text-[#4A4A4A]">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                    <span>Enterprise data integrity and secure cloud synchronization</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                    <span>Role-based permissions, audit logging &amp; data privacy</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                    <span>Direct phone support line for rapid operational inquiries</span>
+                  </li>
+                </ul>
               </div>
-              <h3 className="text-base font-bold text-[#141414]">
-                Built on Trust
-              </h3>
-              <p className="mt-2 text-xs sm:text-sm text-[#5A5A5A] leading-relaxed">
-                Rigorous security standards, data privacy, and reliable architecture designed for long-term growth.
-              </p>
+
+              {/* Action Area */}
+              <div className="mt-8 pt-6 border-t border-[#EFECE6]">
+                <a
+                  href="tel:9447141984"
+                  className="group flex w-full items-center justify-center gap-2.5 rounded-full bg-[#141414] px-6 py-3.5 text-sm font-medium text-white shadow-sm transition-all hover:bg-[#262626] active:scale-[0.98]"
+                >
+                  <Phone className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
+                  <span>Call Directly: 9447141984</span>
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Contact Cards Section */}
-          <div className="mt-16 rounded-3xl border border-[#E8E6DF] bg-white p-8 sm:p-12 shadow-hero-mockup text-center">
-            <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#141414]">
-              Direct Contact
-            </h2>
-            <p className="mt-2 text-xs sm:text-sm text-[#5A5A5A] max-w-md mx-auto">
-              Have questions, inquiries, or feedback? Reach out directly.
-            </p>
-
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="mailto:johan.manojp@gmail.com"
-                className="group flex w-full sm:w-auto items-center justify-center gap-3 rounded-full border border-[#E8E6DF] bg-[#FAFAF8] px-7 py-3.5 text-sm font-medium text-[#141414] shadow-sm transition-all hover:border-[#141414] hover:bg-white active:scale-95"
+          {/* Secondary Banner — Explore Products */}
+          <div className="mt-8 max-w-5xl mx-auto rounded-3xl border border-[#E8E6DF] bg-white p-8 sm:p-10 shadow-subtle">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              <div className="flex items-start gap-5">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#E8E6DF] bg-[#FAFAF8] text-[#4A4A4A]">
+                  <Globe className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-[#141414]">Explore ZEON Products</h3>
+                  <p className="mt-1 text-sm text-[#737373]">
+                    Available for Windows desktop dispatch and Android mobile APK order taking.
+                  </p>
+                </div>
+              </div>
+              <Link
+                href="/product"
+                className="group inline-flex shrink-0 items-center gap-2 rounded-full border border-[#E8E6DF] bg-[#FAFAF8] px-6 py-2.5 text-sm font-medium text-[#141414] transition-all hover:bg-[#141414] hover:text-white hover:border-[#141414] active:scale-[0.98]"
               >
-                <Mail className="h-4 w-4 text-[#737373] transition-colors group-hover:text-[#141414]" />
-                <span>johan.manojp@gmail.com</span>
-              </a>
+                <span>View products</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            </div>
+          </div>
 
-              <a
-                href="tel:9447141984"
-                className="group flex w-full sm:w-auto items-center justify-center gap-3 rounded-full border border-[#E8E6DF] bg-[#FAFAF8] px-7 py-3.5 text-sm font-medium text-[#141414] shadow-sm transition-all hover:border-[#141414] hover:bg-white active:scale-95"
-              >
-                <Phone className="h-4 w-4 text-[#737373] transition-colors group-hover:text-[#141414]" />
-                <span>9447141984</span>
-              </a>
+          {/* Core Principles Cards */}
+          <div className="mt-14 max-w-5xl mx-auto">
+            <h3 className="text-xl font-bold text-[#141414] text-center mb-8">
+              Our Core Principles
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="rounded-2xl border border-[#E8E6DF] bg-white p-6 shadow-subtle">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#141414] text-white text-xs font-bold mb-4">
+                  1
+                </div>
+                <h4 className="font-semibold text-[#141414]">Simplicity First</h4>
+                <p className="mt-1.5 text-xs text-[#5A5A5A] leading-relaxed">
+                  We craft clean, thoughtful interfaces that eliminate noise, letting you focus entirely on your work.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-[#E8E6DF] bg-white p-6 shadow-subtle">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#141414] text-white text-xs font-bold mb-4">
+                  2
+                </div>
+                <h4 className="font-semibold text-[#141414]">Engineered for Speed</h4>
+                <p className="mt-1.5 text-xs text-[#5A5A5A] leading-relaxed">
+                  Fast interactions, instant cloud synchronization, and responsive feedback across desktop and mobile.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-[#E8E6DF] bg-white p-6 shadow-subtle">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#141414] text-white text-xs font-bold mb-4">
+                  3
+                </div>
+                <h4 className="font-semibold text-[#141414]">Built on Trust</h4>
+                <p className="mt-1.5 text-xs text-[#5A5A5A] leading-relaxed">
+                  Rigorous security standards, data privacy, and reliable architecture designed for long-term growth.
+                </p>
+              </div>
             </div>
           </div>
         </main>
