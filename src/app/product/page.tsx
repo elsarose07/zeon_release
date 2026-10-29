@@ -43,10 +43,6 @@ export default function ProductPage() {
               One platform. <br />
               <span className="italic text-[#5A5A5A]">Built for every device.</span>
             </h1>
-
-            <p className="mt-6 text-base sm:text-lg leading-relaxed text-[#4A4A4A] text-balance">
-              Deploy <strong>ZEON for Windows</strong> for full dispatch and inventory management, or equip sales reps and warehouse staff with the <strong>ZEON Mobile APK</strong> for fast catalog browsing and real-time online order taking.
-            </p>
           </div>
 
           {/* Dual Download Cards Grid */}
@@ -197,7 +193,7 @@ export default function ProductPage() {
                 </div>
               </div>
               <a
-                href="https://zeon-9d9b5.web.app"
+                href="https://zeonapp.xeops.in"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex shrink-0 items-center gap-2 rounded-full border border-white/65 bg-white/45 px-6 py-2.5 text-sm font-medium text-[#141414] backdrop-blur-sm transition-all hover:bg-[#141414] hover:text-white hover:border-[#141414] active:scale-[0.98]"
