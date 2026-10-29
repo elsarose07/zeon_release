@@ -27,7 +27,7 @@ export default function HelpPage() {
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
             <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#111111] leading-[1.02]">
-              Help &amp; Support
+              Help <span className="font-serif italic font-normal text-[#5A5A5A] text-[0.88em] mx-1 sm:mx-2 select-none" style={{ fontFamily: "Georgia, 'Playfair Display', serif" }}>&amp;</span> Support
             </h1>
             <p className="mt-6 text-base sm:text-lg leading-relaxed text-[#4A4A4A] text-balance">
               Find answers to common questions about setting up, syncing, and managing your orders and stock with ease.
