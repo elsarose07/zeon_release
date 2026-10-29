@@ -243,8 +243,8 @@ export function Hero() {
                 Zeon.
               </h1>
               <div className="font-canela text-[30px] sm:text-[38px] lg:text-[44px] xl:text-[48px] font-medium tracking-[-0.02em] text-[#6B7280] leading-[1.14] mt-2.5 sm:mt-3">
-                <span className="block">Everything your business needs.</span>
-                <span className="block text-[#6B7280]">One workspace.</span>
+                <span className="block">Your business,</span>
+                <span className="block text-[#6B7280]">in sync.</span>
               </div>
             </motion.div>
 
@@ -255,9 +255,7 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
               className="mt-6 max-w-[440px] text-[15px] sm:text-[16px] leading-relaxed text-[#4A4A4A] font-normal"
             >
-              Bring your orders, customers, inventory, and team together in one
-              seamless workspace. Stay organized, simplify daily operations, and
-              focus on growing your business.
+              Bring your orders, customers, inventory, and team together in one seamless workspace.
             </motion.p>
 
             {/* CTA Buttons */}

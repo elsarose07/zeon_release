@@ -76,8 +76,7 @@ export function FeaturesGrid() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-[#141414]"
         >
-          Everything your business needs. <br />
-          <span className="italic text-[#737373]">Nothing it doesn&apos;t.</span>
+          Business, brought together.
         </motion.h2>
 
         <motion.p
@@ -87,7 +86,7 @@ export function FeaturesGrid() {
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
           className="mt-4 text-base sm:text-lg text-[#5A5A5A] text-balance"
         >
-          Designed thoughtfully to eliminate clutter so you and your team can focus on fulfilling orders and scaling smoothly.
+          Orders, inventory, customers, and teams — all working together in one seamless workspace.
         </motion.p>
       </div>
 
