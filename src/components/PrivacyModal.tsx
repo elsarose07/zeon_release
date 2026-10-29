@@ -54,7 +54,12 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="relative z-10 flex max-h-[90vh] w-full max-w-2xl flex-col rounded-2xl border border-[#E8E6DF] bg-white shadow-2xl overflow-hidden"
+            className="relative z-10 flex max-h-[90vh] w-full max-w-2xl flex-col rounded-2xl border border-white/60 shadow-2xl overflow-hidden"
+            style={{
+              background: "linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(228, 233, 240, 0.82) 50%, rgba(240, 243, 246, 0.85) 100%)",
+              backdropFilter: "blur(20px) saturate(118%)",
+              WebkitBackdropFilter: "blur(20px) saturate(118%)",
+            }}
           >
             {/* Header */}
             <div className="flex items-center justify-between border-b border-[#EFECE6] px-6 py-4 sm:px-8">

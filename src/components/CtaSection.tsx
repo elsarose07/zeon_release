@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -13,7 +13,13 @@ export function CtaSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative overflow-hidden rounded-3xl border border-[#E8E6DF] bg-white p-10 sm:p-16 text-center shadow-hero-mockup"
+        className="relative overflow-hidden rounded-3xl border border-white/60 p-10 sm:p-16 text-center transition-all duration-300 hover:border-white/85"
+        style={{
+          background: "linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%)",
+          backdropFilter: "blur(14px) saturate(118%)",
+          WebkitBackdropFilter: "blur(14px) saturate(118%)",
+          boxShadow: "0 8px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.90), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.20)",
+        }}
       >
         {/* Soft Ambient Radial Lights inside card */}
         <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center">

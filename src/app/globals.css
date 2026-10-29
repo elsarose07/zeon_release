@@ -33,6 +33,21 @@ body {
   text-wrap: balance;
 }
 
+/* Signature ash glass card style from the first page */
+.ash-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%);
+  backdrop-filter: blur(14px) saturate(118%);
+  -webkit-backdrop-filter: blur(14px) saturate(118%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.90), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.20);
+  transition: all 0.3s ease;
+}
+
+.ash-card:hover {
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 20px 48px -10px rgba(15, 23, 42, 0.14), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.95), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.25);
+}
+
 /* Glassmorphism utility */
 .glass-nav {
   background: rgba(252, 252, 249, 0.85);

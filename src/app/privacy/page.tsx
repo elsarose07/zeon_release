@@ -44,11 +44,19 @@ export default function PrivacyPage() {
           </Link>
 
           {/* Privacy Card replicating modal layout */}
-          <div className="rounded-2xl border border-[#E8E6DF] bg-white shadow-xl overflow-hidden">
+          <div
+            className="rounded-2xl border border-white/60 shadow-xl overflow-hidden transition-all duration-300"
+            style={{
+              background: "linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%)",
+              backdropFilter: "blur(14px) saturate(118%)",
+              WebkitBackdropFilter: "blur(14px) saturate(118%)",
+              boxShadow: "0 8px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.90), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.20)",
+            }}
+          >
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-[#EFECE6] px-6 py-5 sm:px-8">
+            <div className="flex items-center justify-between border-b border-white/60 px-6 py-5 sm:px-8">
               <div className="flex items-center gap-3.5">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#F4F4F0] border border-[#E8E6DF] text-[#141414]">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/45 border border-white/65 text-[#141414] backdrop-blur-sm">
                   <Shield className="h-5 w-5" />
                 </div>
                 <div>
@@ -169,7 +177,7 @@ export default function PrivacyPage() {
             </div>
 
             {/* Bottom Bar */}
-            <div className="flex items-center justify-between border-t border-[#EFECE6] bg-[#FAFAF8] px-6 py-4 sm:px-8">
+            <div className="flex items-center justify-between border-t border-white/60 bg-white/30 backdrop-blur-sm px-6 py-4 sm:px-8">
               <span className="text-xs text-[#737373]" suppressHydrationWarning>
                 © {new Date().getFullYear()} Zeon
               </span>

@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { InteractiveCard } from "@/components/InteractiveCard";
 import {
   Mail,
   Phone,
@@ -49,7 +50,10 @@ export default function AboutPage() {
           {/* Dual Primary Cards Grid */}
           <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* 1. Philosophy & Mission Card */}
-            <div className="relative flex flex-col justify-between rounded-3xl border border-[#E8E6DF] bg-white p-8 sm:p-10 shadow-hero-mockup transition-all hover:border-[#D5D0C5] hover:shadow-xl">
+            <InteractiveCard
+              maxTilt={4}
+              className="rounded-3xl border border-white/60 hover:border-white/85 p-8 sm:p-10 transition-all duration-300"
+            >
               <div>
                 {/* Header Icon */}
                 <div className="flex items-center justify-between">
@@ -89,19 +93,22 @@ export default function AboutPage() {
               </div>
 
               {/* Action Area */}
-              <div className="mt-8 pt-6 border-t border-[#EFECE6]">
+              <div className="mt-8 pt-6 border-t border-white/60 relative z-20">
                 <a
                   href="mailto:johan.manojp@gmail.com"
-                  className="group flex w-full items-center justify-center gap-2.5 rounded-full bg-[#141414] px-6 py-3.5 text-sm font-medium text-white shadow-sm transition-all hover:bg-[#262626] active:scale-[0.98]"
+                  className="group flex w-full items-center justify-center gap-2.5 rounded-full bg-[#141414] px-6 py-3.5 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-[#262626] hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]"
                 >
                   <Mail className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
                   <span>Email: johan.manojp@gmail.com</span>
                 </a>
               </div>
-            </div>
+            </InteractiveCard>
 
             {/* 2. Trust & Direct Support Card */}
-            <div className="relative flex flex-col justify-between rounded-3xl border border-[#E8E6DF] bg-white p-8 sm:p-10 shadow-hero-mockup transition-all hover:border-[#D5D0C5] hover:shadow-xl">
+            <InteractiveCard
+              maxTilt={4}
+              className="rounded-3xl border border-white/60 hover:border-white/85 p-8 sm:p-10 transition-all duration-300"
+            >
               <div>
                 {/* Header Icon */}
                 <div className="flex items-center justify-between">
@@ -141,40 +148,47 @@ export default function AboutPage() {
               </div>
 
               {/* Action Area */}
-              <div className="mt-8 pt-6 border-t border-[#EFECE6]">
+              <div className="mt-8 pt-6 border-t border-white/60 relative z-20">
                 <a
                   href="tel:9447141984"
-                  className="group flex w-full items-center justify-center gap-2.5 rounded-full bg-[#141414] px-6 py-3.5 text-sm font-medium text-white shadow-sm transition-all hover:bg-[#262626] active:scale-[0.98]"
+                  className="group flex w-full items-center justify-center gap-2.5 rounded-full bg-[#141414] px-6 py-3.5 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-[#262626] hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]"
                 >
                   <Phone className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
                   <span>Call Directly: 9447141984</span>
                 </a>
               </div>
-            </div>
+            </InteractiveCard>
           </div>
 
           {/* Secondary Banner — Explore Products */}
-          <div className="mt-8 max-w-5xl mx-auto rounded-3xl border border-[#E8E6DF] bg-white p-8 sm:p-10 shadow-subtle">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-              <div className="flex items-start gap-5">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#E8E6DF] bg-[#FAFAF8] text-[#4A4A4A]">
-                  <Globe className="h-5 w-5" />
+          <div className="mt-8 max-w-5xl mx-auto">
+            <InteractiveCard
+              maxTilt={3}
+              className="rounded-3xl border border-white/60 hover:border-white/85 p-8 sm:p-10 transition-all duration-300"
+            >
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                <div className="flex items-start gap-5">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/65 bg-white/45 text-[#4A4A4A] backdrop-blur-sm">
+                    <Globe className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-bold text-[#141414]">Explore ZEON Products</h3>
+                    <p className="mt-1 text-sm text-[#737373]">
+                      Available for Windows desktop dispatch and Android mobile APK order taking.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-base font-bold text-[#141414]">Explore ZEON Products</h3>
-                  <p className="mt-1 text-sm text-[#737373]">
-                    Available for Windows desktop dispatch and Android mobile APK order taking.
-                  </p>
+                <div className="relative z-20">
+                  <Link
+                    href="/product"
+                    className="group inline-flex shrink-0 items-center gap-2 rounded-full border border-white/65 bg-white/45 px-6 py-2.5 text-sm font-medium text-[#141414] backdrop-blur-sm transition-all duration-200 hover:bg-[#141414] hover:text-white hover:border-[#141414] hover:-translate-y-0.5 hover:shadow-sm active:scale-[0.98]"
+                  >
+                    <span>View products</span>
+                    <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+                  </Link>
                 </div>
               </div>
-              <Link
-                href="/product"
-                className="group inline-flex shrink-0 items-center gap-2 rounded-full border border-[#E8E6DF] bg-[#FAFAF8] px-6 py-2.5 text-sm font-medium text-[#141414] transition-all hover:bg-[#141414] hover:text-white hover:border-[#141414] active:scale-[0.98]"
-              >
-                <span>View products</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            </div>
+            </InteractiveCard>
           </div>
 
           {/* Core Principles Cards */}
@@ -184,35 +198,50 @@ export default function AboutPage() {
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div className="rounded-2xl border border-[#E8E6DF] bg-white p-6 shadow-subtle">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#141414] text-white text-xs font-bold mb-4">
-                  1
+              <InteractiveCard
+                maxTilt={4}
+                className="rounded-2xl border border-white/60 hover:border-white/85 p-6 transition-all duration-300"
+              >
+                <div>
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#141414] text-white text-xs font-bold mb-4">
+                    1
+                  </div>
+                  <h4 className="font-semibold text-[#141414]">Simplicity First</h4>
+                  <p className="mt-1.5 text-xs text-[#5A5A5A] leading-relaxed">
+                    We craft clean, thoughtful interfaces that eliminate noise, letting you focus entirely on your work.
+                  </p>
                 </div>
-                <h4 className="font-semibold text-[#141414]">Simplicity First</h4>
-                <p className="mt-1.5 text-xs text-[#5A5A5A] leading-relaxed">
-                  We craft clean, thoughtful interfaces that eliminate noise, letting you focus entirely on your work.
-                </p>
-              </div>
+              </InteractiveCard>
 
-              <div className="rounded-2xl border border-[#E8E6DF] bg-white p-6 shadow-subtle">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#141414] text-white text-xs font-bold mb-4">
-                  2
+              <InteractiveCard
+                maxTilt={4}
+                className="rounded-2xl border border-white/60 hover:border-white/85 p-6 transition-all duration-300"
+              >
+                <div>
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#141414] text-white text-xs font-bold mb-4">
+                    2
+                  </div>
+                  <h4 className="font-semibold text-[#141414]">Engineered for Speed</h4>
+                  <p className="mt-1.5 text-xs text-[#5A5A5A] leading-relaxed">
+                    Fast interactions, instant cloud synchronization, and responsive feedback across desktop and mobile.
+                  </p>
                 </div>
-                <h4 className="font-semibold text-[#141414]">Engineered for Speed</h4>
-                <p className="mt-1.5 text-xs text-[#5A5A5A] leading-relaxed">
-                  Fast interactions, instant cloud synchronization, and responsive feedback across desktop and mobile.
-                </p>
-              </div>
+              </InteractiveCard>
 
-              <div className="rounded-2xl border border-[#E8E6DF] bg-white p-6 shadow-subtle">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#141414] text-white text-xs font-bold mb-4">
-                  3
+              <InteractiveCard
+                maxTilt={4}
+                className="rounded-2xl border border-white/60 hover:border-white/85 p-6 transition-all duration-300"
+              >
+                <div>
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#141414] text-white text-xs font-bold mb-4">
+                    3
+                  </div>
+                  <h4 className="font-semibold text-[#141414]">Built on Trust</h4>
+                  <p className="mt-1.5 text-xs text-[#5A5A5A] leading-relaxed">
+                    Rigorous security standards, data privacy, and reliable architecture designed for long-term growth.
+                  </p>
                 </div>
-                <h4 className="font-semibold text-[#141414]">Built on Trust</h4>
-                <p className="mt-1.5 text-xs text-[#5A5A5A] leading-relaxed">
-                  Rigorous security standards, data privacy, and reliable architecture designed for long-term growth.
-                </p>
-              </div>
+              </InteractiveCard>
             </div>
           </div>
         </main>
