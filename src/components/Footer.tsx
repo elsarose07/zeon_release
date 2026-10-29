@@ -26,22 +26,24 @@ export function Footer() {
           </Link>
 
           {/* Copyright, Terms and Privacy Modal Triggers */}
-          <div className="flex items-center gap-6 text-xs text-[#737373]">
-            <p suppressHydrationWarning>© {new Date().getFullYear()} Zeon. All rights reserved.</p>
-            <button
-              type="button"
-              onClick={() => setTermsOpen(true)}
-              className="font-medium text-[#5A5A5A] transition-colors hover:text-[#141414] hover:underline"
-            >
-              Terms of Service
-            </button>
-            <button
-              type="button"
-              onClick={() => setPrivacyOpen(true)}
-              className="font-medium text-[#5A5A5A] transition-colors hover:text-[#141414] hover:underline"
-            >
-              Privacy Policy
-            </button>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-xs text-[#737373] text-center sm:text-left">
+            <p suppressHydrationWarning>© {new Date().getFullYear()} XEOPS. All rights reserved. ZEON™ is a product of XEOPS.</p>
+            <div className="flex items-center gap-4 sm:gap-6">
+              <button
+                type="button"
+                onClick={() => setTermsOpen(true)}
+                className="font-medium text-[#5A5A5A] transition-colors hover:text-[#141414] hover:underline"
+              >
+                Terms of Service
+              </button>
+              <button
+                type="button"
+                onClick={() => setPrivacyOpen(true)}
+                className="font-medium text-[#5A5A5A] transition-colors hover:text-[#141414] hover:underline"
+              >
+                Privacy Policy
+              </button>
+            </div>
           </div>
         </div>
       </footer>

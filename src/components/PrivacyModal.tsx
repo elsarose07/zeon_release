@@ -235,7 +235,7 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
             {/* Modal Bottom Bar */}
             <div className="flex items-center justify-between border-t border-[#EFECE6] bg-[#FAFAF8] px-6 py-4 sm:px-8">
               <span className="text-xs text-[#737373]" suppressHydrationWarning>
-                © {new Date().getFullYear()} Zeon
+                © {new Date().getFullYear()} XEOPS
               </span>
               <button
                 type="button"
