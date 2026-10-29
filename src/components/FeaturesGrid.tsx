@@ -57,6 +57,14 @@ const features = [
 ];
 
 export function FeaturesGrid() {
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    e.currentTarget.style.setProperty("--mouse-x", `${x}px`);
+    e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
+  };
+
   return (
     <section className="relative py-16 sm:py-24 max-w-6xl mx-auto px-6 sm:px-10 lg:px-8">
       {/* Section Header */}
@@ -99,7 +107,9 @@ export function FeaturesGrid() {
                 ease: "easeOut",
               }}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="group relative flex flex-col justify-between rounded-3xl border border-white/60 p-7 sm:p-8 transition-all duration-300 hover:border-white/85 hover:shadow-[0_20px_48px_-10px_rgba(15,23,42,0.14)]"
+              onPointerMove={handlePointerMove}
+              onPointerEnter={handlePointerMove}
+              className="group relative flex flex-col justify-between rounded-3xl border border-white/60 p-7 sm:p-8 overflow-hidden transition-all duration-300 hover:border-white/85 hover:shadow-[0_20px_48px_-10px_rgba(15,23,42,0.14)]"
               style={{
                 background: "linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%)",
                 backdropFilter: "blur(14px) saturate(118%)",
@@ -107,7 +117,16 @@ export function FeaturesGrid() {
                 boxShadow: "0 8px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.90), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.20)",
               }}
             >
-              <div>
+              {/* Compact cursor-following frosted silver spotlight reflection */}
+              <div
+                className="pointer-events-none absolute inset-0 z-0 rounded-3xl opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 motion-reduce:hidden"
+                style={{
+                  background: "radial-gradient(circle 90px at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 255, 255, 0.52) 0%, rgba(220, 224, 230, 0.22) 35%, transparent 75%)",
+                }}
+                aria-hidden="true"
+              />
+
+              <div className="relative z-10">
                 {/* Icon & Tag */}
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/45 border border-white/65 text-[#141414] backdrop-blur-sm transition-colors duration-200 group-hover:bg-[#141414] group-hover:text-white">
