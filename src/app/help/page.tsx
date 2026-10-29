@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -8,53 +6,9 @@ import {
   BookOpen,
   FileQuestion,
   ArrowRight,
-  X,
-  Maximize2,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 
 export default function HelpPage() {
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const inlineVideoRef = useRef<HTMLVideoElement>(null);
-  const modalVideoRef = useRef<HTMLVideoElement>(null);
-
-  // Auto-play modal when lightbox opens, pause inline video, sync playback position
-  useEffect(() => {
-    if (lightboxOpen) {
-      document.body.style.overflow = "hidden";
-      if (inlineVideoRef.current) {
-        inlineVideoRef.current.pause();
-      }
-      if (modalVideoRef.current) {
-        if (inlineVideoRef.current) {
-          modalVideoRef.current.currentTime = inlineVideoRef.current.currentTime;
-        }
-        modalVideoRef.current.play().catch(() => {});
-      }
-    } else {
-      document.body.style.overflow = "";
-      if (modalVideoRef.current) {
-        modalVideoRef.current.pause();
-        if (inlineVideoRef.current) {
-          inlineVideoRef.current.currentTime = modalVideoRef.current.currentTime;
-          inlineVideoRef.current.play().catch(() => {});
-        }
-      }
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [lightboxOpen]);
-
-  // Close on Escape key
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightboxOpen(false);
-    };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, []);
-
   return (
     <div
       className="relative min-h-screen text-[#141414] flex flex-col justify-between overflow-hidden"
@@ -69,50 +23,19 @@ export default function HelpPage() {
       <div>
         <Navbar />
 
-        <main className="mx-auto max-w-5xl px-6 py-10 sm:px-10 lg:px-8 lg:py-14">
-          {/* Description */}
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <p className="text-base sm:text-lg leading-relaxed text-[#4A4A4A] text-balance">
-              Watch our complete walkthrough video below to learn how to set up, sync, and manage your orders and stock with ease.
+        <main className="mx-auto max-w-5xl px-6 pt-28 pb-16 sm:px-10 sm:pt-32 sm:pb-20 lg:px-8 lg:pt-36 lg:pb-24">
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#111111] leading-[1.02]">
+              Help &amp; Support
+            </h1>
+            <p className="mt-6 text-base sm:text-lg leading-relaxed text-[#4A4A4A] text-balance">
+              Find answers to common questions about setting up, syncing, and managing your orders and stock with ease.
             </p>
           </div>
 
-          {/* Video — auto-plays on page open, click expand for lightbox */}
-          <div className="max-w-4xl mx-auto">
-            <div
-              className="relative overflow-hidden rounded-3xl border border-white/60 p-3 sm:p-4 transition-all duration-300 hover:border-white/85 hover:shadow-[0_20px_48px_-10px_rgba(15,23,42,0.14)]"
-              style={{
-                background: "linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%)",
-                backdropFilter: "blur(14px) saturate(118%)",
-                WebkitBackdropFilter: "blur(14px) saturate(118%)",
-                boxShadow: "0 8px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.90), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.20)",
-              }}
-            >
-              <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-[#141414]">
-                <video
-                  ref={inlineVideoRef}
-                  className="w-full h-full object-cover"
-                  src="/Zeondemo.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  controls
-                />
-                {/* Expand to lightbox */}
-                <button
-                  onClick={() => setLightboxOpen(true)}
-                  className="absolute bottom-4 right-4 z-10 flex items-center gap-1.5 rounded-md bg-black/60 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur-sm hover:bg-black/80 transition-colors"
-                >
-                  <Maximize2 className="h-3 w-3" />
-                  <span>Expand</span>
-                </button>
-              </div>
-            </div>
-          </div>
-
           {/* Quick Help Topics Grid */}
-          <div className="mt-16 max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             <h2 className="font-serif text-2xl sm:text-3xl font-normal text-[#141414] text-center mb-8">
               Frequently Asked Questions
             </h2>
@@ -194,47 +117,6 @@ export default function HelpPage() {
       </div>
 
       <Footer />
-
-      {/* Video Lightbox Modal */}
-      <AnimatePresence>
-        {lightboxOpen && (
-          <motion.div
-            key="lightbox"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4 sm:p-8"
-            onClick={() => setLightboxOpen(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full max-w-5xl rounded-2xl overflow-hidden shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setLightboxOpen(false)}
-                className="absolute top-3 right-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-sm hover:bg-black/80 transition-colors"
-              >
-                <X className="h-4 w-4" />
-              </button>
-
-              {/* Actual Video */}
-              <video
-                ref={modalVideoRef}
-                className="w-full aspect-video bg-black"
-                controls
-                playsInline
-                src="/Zeondemo.mp4"
-              />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }

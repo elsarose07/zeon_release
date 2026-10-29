@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Zeon",
-  description: "Watch the complete walkthrough video to learn how to set up, sync, and manage orders and inventory with Zeon.",
+  description: "Get help and find answers to common questions about setting up, syncing, and managing orders and inventory with Zeon.",
 };
 
 export default function HelpLayout({
