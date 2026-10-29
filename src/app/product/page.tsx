@@ -52,7 +52,15 @@ export default function ProductPage() {
           {/* Dual Download Cards Grid */}
           <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* 1. Windows Desktop App Card */}
-            <div className="relative flex flex-col justify-between rounded-3xl border border-[#E8E6DF] bg-white p-8 sm:p-10 shadow-hero-mockup transition-all hover:border-[#D5D0C5] hover:shadow-xl">
+            <div
+              className="group relative flex flex-col justify-between rounded-3xl border border-white/60 p-8 sm:p-10 transition-all duration-300 hover:border-white/85 hover:shadow-[0_20px_48px_-10px_rgba(15,23,42,0.14)]"
+              style={{
+                background: "linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%)",
+                backdropFilter: "blur(14px) saturate(118%)",
+                WebkitBackdropFilter: "blur(14px) saturate(118%)",
+                boxShadow: "0 8px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.90), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.20)",
+              }}
+            >
               <div>
                 {/* Platform Header */}
                 <div className="flex items-center justify-between">
@@ -92,7 +100,7 @@ export default function ProductPage() {
               </div>
 
               {/* Download Action Area */}
-              <div className="mt-8 pt-6 border-t border-[#EFECE6]">
+              <div className="mt-8 pt-6 border-t border-white/60">
                 <a
                   href={WINDOWS_DOWNLOAD_URL}
                   download="Zeon-1.2.5-Installer.exe"
@@ -105,7 +113,15 @@ export default function ProductPage() {
             </div>
 
             {/* 2. Android Mobile APK Card */}
-            <div className="relative flex flex-col justify-between rounded-3xl border border-[#E8E6DF] bg-white p-8 sm:p-10 shadow-hero-mockup transition-all hover:border-[#D5D0C5] hover:shadow-xl">
+            <div
+              className="group relative flex flex-col justify-between rounded-3xl border border-white/60 p-8 sm:p-10 transition-all duration-300 hover:border-white/85 hover:shadow-[0_20px_48px_-10px_rgba(15,23,42,0.14)]"
+              style={{
+                background: "linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%)",
+                backdropFilter: "blur(14px) saturate(118%)",
+                WebkitBackdropFilter: "blur(14px) saturate(118%)",
+                boxShadow: "0 8px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.90), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.20)",
+              }}
+            >
               <div>
                 {/* Platform Header */}
                 <div className="flex items-center justify-between">
@@ -145,7 +161,7 @@ export default function ProductPage() {
               </div>
 
               {/* Download Action Area */}
-              <div className="mt-8 pt-6 border-t border-[#EFECE6]">
+              <div className="mt-8 pt-6 border-t border-white/60">
                 <a
                   href={ANDROID_APK_DOWNLOAD_URL}
                   download="Zeon-V1.2.5.apk"
@@ -159,10 +175,18 @@ export default function ProductPage() {
           </div>
 
           {/* Web App — Secondary Option */}
-          <div className="mt-8 max-w-5xl mx-auto rounded-3xl border border-[#E8E6DF] bg-white p-8 sm:p-10 shadow-subtle">
+          <div
+            className="mt-8 max-w-5xl mx-auto rounded-3xl border border-white/60 p-8 sm:p-10 transition-all duration-300 hover:border-white/85"
+            style={{
+              background: "linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%)",
+              backdropFilter: "blur(14px) saturate(118%)",
+              WebkitBackdropFilter: "blur(14px) saturate(118%)",
+              boxShadow: "0 8px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.90), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.20)",
+            }}
+          >
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <div className="flex items-start gap-5">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#E8E6DF] bg-[#FAFAF8] text-[#4A4A4A]">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/65 bg-white/45 text-[#4A4A4A] backdrop-blur-sm">
                   <Globe className="h-5 w-5" />
                 </div>
                 <div>
@@ -176,7 +200,7 @@ export default function ProductPage() {
                 href="https://zeon-9d9b5.web.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex shrink-0 items-center gap-2 rounded-full border border-[#E8E6DF] bg-[#FAFAF8] px-6 py-2.5 text-sm font-medium text-[#141414] transition-all hover:bg-[#141414] hover:text-white hover:border-[#141414] active:scale-[0.98]"
+                className="group inline-flex shrink-0 items-center gap-2 rounded-full border border-white/65 bg-white/45 px-6 py-2.5 text-sm font-medium text-[#141414] backdrop-blur-sm transition-all hover:bg-[#141414] hover:text-white hover:border-[#141414] active:scale-[0.98]"
               >
                 <Globe className="h-4 w-4" />
                 <span>Open web app</span>
@@ -191,7 +215,15 @@ export default function ProductPage() {
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div className="rounded-2xl border border-[#E8E6DF] bg-white p-6 shadow-subtle">
+              <div
+                className="rounded-2xl border border-white/60 p-6 transition-all duration-300 hover:border-white/85"
+                style={{
+                  background: "linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%)",
+                  backdropFilter: "blur(14px) saturate(118%)",
+                  WebkitBackdropFilter: "blur(14px) saturate(118%)",
+                  boxShadow: "0 8px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.90), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.20)",
+                }}
+              >
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#141414] text-white text-xs font-bold mb-4">
                   1
                 </div>
@@ -201,7 +233,15 @@ export default function ProductPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-[#E8E6DF] bg-white p-6 shadow-subtle">
+              <div
+                className="rounded-2xl border border-white/60 p-6 transition-all duration-300 hover:border-white/85"
+                style={{
+                  background: "linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%)",
+                  backdropFilter: "blur(14px) saturate(118%)",
+                  WebkitBackdropFilter: "blur(14px) saturate(118%)",
+                  boxShadow: "0 8px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.90), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.20)",
+                }}
+              >
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#141414] text-white text-xs font-bold mb-4">
                   2
                 </div>
@@ -211,7 +251,15 @@ export default function ProductPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-[#E8E6DF] bg-white p-6 shadow-subtle">
+              <div
+                className="rounded-2xl border border-white/60 p-6 transition-all duration-300 hover:border-white/85"
+                style={{
+                  background: "linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%)",
+                  backdropFilter: "blur(14px) saturate(118%)",
+                  WebkitBackdropFilter: "blur(14px) saturate(118%)",
+                  boxShadow: "0 8px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.90), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.20)",
+                }}
+              >
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#141414] text-white text-xs font-bold mb-4">
                   3
                 </div>

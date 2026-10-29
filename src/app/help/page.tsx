@@ -79,7 +79,15 @@ export default function HelpPage() {
 
           {/* Video — auto-plays on page open, click expand for lightbox */}
           <div className="max-w-4xl mx-auto">
-            <div className="relative overflow-hidden rounded-3xl border border-[#E8E6DF] bg-white p-3 sm:p-4 shadow-hero-mockup">
+            <div
+              className="relative overflow-hidden rounded-3xl border border-white/60 p-3 sm:p-4 transition-all duration-300 hover:border-white/85 hover:shadow-[0_20px_48px_-10px_rgba(15,23,42,0.14)]"
+              style={{
+                background: "linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%)",
+                backdropFilter: "blur(14px) saturate(118%)",
+                WebkitBackdropFilter: "blur(14px) saturate(118%)",
+                boxShadow: "0 8px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.90), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.20)",
+              }}
+            >
               <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-[#141414]">
                 <video
                   ref={inlineVideoRef}
@@ -110,9 +118,17 @@ export default function HelpPage() {
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="rounded-2xl border border-[#E8E6DF] bg-white p-6 shadow-subtle">
+              <div
+                className="rounded-2xl border border-white/60 p-6 transition-all duration-300 hover:border-white/85"
+                style={{
+                  background: "linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%)",
+                  backdropFilter: "blur(14px) saturate(118%)",
+                  WebkitBackdropFilter: "blur(14px) saturate(118%)",
+                  boxShadow: "0 8px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.90), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.20)",
+                }}
+              >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#F5F4F0] text-[#141414]">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/45 border border-white/65 text-[#141414] backdrop-blur-sm">
                     <BookOpen className="h-4 w-4" />
                   </div>
                   <h3 className="font-semibold text-[#141414] text-sm">
@@ -124,9 +140,17 @@ export default function HelpPage() {
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-[#E8E6DF] bg-white p-6 shadow-subtle">
+              <div
+                className="rounded-2xl border border-white/60 p-6 transition-all duration-300 hover:border-white/85"
+                style={{
+                  background: "linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%)",
+                  backdropFilter: "blur(14px) saturate(118%)",
+                  WebkitBackdropFilter: "blur(14px) saturate(118%)",
+                  boxShadow: "0 8px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.90), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.20)",
+                }}
+              >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#F5F4F0] text-[#141414]">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/45 border border-white/65 text-[#141414] backdrop-blur-sm">
                     <FileQuestion className="h-4 w-4" />
                   </div>
                   <h3 className="font-semibold text-[#141414] text-sm">
@@ -141,7 +165,15 @@ export default function HelpPage() {
           </div>
 
           {/* Need Direct Assistance Banner */}
-          <div className="mt-14 max-w-4xl mx-auto rounded-3xl border border-[#E8E6DF] bg-white p-8 text-center shadow-subtle">
+          <div
+            className="mt-14 max-w-4xl mx-auto rounded-3xl border border-white/60 p-8 text-center transition-all duration-300 hover:border-white/85"
+            style={{
+              background: "linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%)",
+              backdropFilter: "blur(14px) saturate(118%)",
+              WebkitBackdropFilter: "blur(14px) saturate(118%)",
+              boxShadow: "0 8px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.90), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.20)",
+            }}
+          >
             <h3 className="font-serif text-2xl font-normal text-[#141414]">
               Still need assistance?
             </h3>
