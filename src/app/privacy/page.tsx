@@ -179,7 +179,7 @@ export default function PrivacyPage() {
             {/* Bottom Bar */}
             <div className="flex items-center justify-between border-t border-white/60 bg-white/30 backdrop-blur-sm px-6 py-4 sm:px-8">
               <span className="text-xs text-[#737373]" suppressHydrationWarning>
-                © {new Date().getFullYear()} Zeon
+                © {new Date().getFullYear()} XEOPS
               </span>
               <Link
                 href="/"

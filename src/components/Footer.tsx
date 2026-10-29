@@ -24,8 +24,8 @@ export function Footer() {
           </Link>
 
           {/* Copyright and Privacy Modal Trigger */}
-          <div className="flex items-center gap-6 text-xs text-[#737373]">
-            <p suppressHydrationWarning>© {new Date().getFullYear()} Zeon. All rights reserved.</p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-xs text-[#737373] text-center sm:text-left">
+            <p suppressHydrationWarning>© {new Date().getFullYear()} XEOPS. All rights reserved. ZEON™ is a product of XEOPS.</p>
             <button
               type="button"
               onClick={() => setPrivacyOpen(true)}
