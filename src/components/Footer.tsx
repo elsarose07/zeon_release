@@ -4,9 +4,11 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { PrivacyModal } from "./PrivacyModal";
+import { TermsModal } from "./TermsModal";
 
 export function Footer() {
   const [privacyOpen, setPrivacyOpen] = useState(false);
+  const [termsOpen, setTermsOpen] = useState(false);
 
   return (
     <>
@@ -23,9 +25,16 @@ export function Footer() {
             />
           </Link>
 
-          {/* Copyright and Privacy Modal Trigger */}
+          {/* Copyright, Terms and Privacy Modal Triggers */}
           <div className="flex items-center gap-6 text-xs text-[#737373]">
             <p suppressHydrationWarning>© {new Date().getFullYear()} Zeon. All rights reserved.</p>
+            <button
+              type="button"
+              onClick={() => setTermsOpen(true)}
+              className="font-medium text-[#5A5A5A] transition-colors hover:text-[#141414] hover:underline"
+            >
+              Terms of Service
+            </button>
             <button
               type="button"
               onClick={() => setPrivacyOpen(true)}
@@ -41,6 +50,12 @@ export function Footer() {
       <PrivacyModal
         isOpen={privacyOpen}
         onClose={() => setPrivacyOpen(false)}
+      />
+
+      {/* Interactive Terms of Service Modal */}
+      <TermsModal
+        isOpen={termsOpen}
+        onClose={() => setTermsOpen(false)}
       />
     </>
   );
