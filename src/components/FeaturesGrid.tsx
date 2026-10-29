@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import { motion } from "framer-motion";
@@ -99,12 +99,18 @@ export function FeaturesGrid() {
                 ease: "easeOut",
               }}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="group relative flex flex-col justify-between rounded-3xl border border-[#E8E6DF] bg-white p-7 sm:p-8 shadow-subtle transition-all duration-300 hover:border-[#D5D0C5] hover:shadow-hero-mockup"
+              className="group relative flex flex-col justify-between rounded-3xl border border-white/60 p-7 sm:p-8 transition-all duration-300 hover:border-white/85 hover:shadow-[0_20px_48px_-10px_rgba(15,23,42,0.14)]"
+              style={{
+                background: "linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%)",
+                backdropFilter: "blur(14px) saturate(118%)",
+                WebkitBackdropFilter: "blur(14px) saturate(118%)",
+                boxShadow: "0 8px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.90), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.20)",
+              }}
             >
               <div>
                 {/* Icon & Tag */}
                 <div className="flex items-center justify-between mb-6">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#FAFAF8] border border-[#EFECE6] text-[#141414] transition-colors duration-200 group-hover:bg-[#141414] group-hover:text-white">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/45 border border-white/65 text-[#141414] backdrop-blur-sm transition-colors duration-200 group-hover:bg-[#141414] group-hover:text-white">
                     <Icon className="h-5 w-5" />
                   </div>
                   <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8A8A8A]">

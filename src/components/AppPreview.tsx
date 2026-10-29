@@ -47,13 +47,6 @@ export function AppPreview() {
                       <span className="text-xs font-semibold text-[#141414] tracking-wide">
                         ZEON
                       </span>
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-0.5 text-[10px] font-medium text-emerald-700 border border-emerald-200/60 shadow-sm">
-                        <span className="relative flex h-1.5 w-1.5">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
-                        </span>
-                        Live Sync Active
-                      </span>
                     </div>
                   </div>
 
