@@ -95,11 +95,11 @@ export default function AboutPage() {
               {/* Action Area */}
               <div className="mt-8 pt-6 border-t border-white/60 relative z-20">
                 <a
-                  href="mailto:johan.manojp@gmail.com"
+                  href="mailto:support.zeon@xeops.in"
                   className="group flex w-full items-center justify-center gap-2.5 rounded-full bg-[#141414] px-6 py-3.5 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-[#262626] hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]"
                 >
                   <Mail className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
-                  <span>Email: johan.manojp@gmail.com</span>
+                  <span>Email: support.zeon@xeops.in</span>
                 </a>
               </div>
             </InteractiveCard>
