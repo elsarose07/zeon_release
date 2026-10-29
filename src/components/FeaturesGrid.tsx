@@ -117,11 +117,11 @@ export function FeaturesGrid() {
                 boxShadow: "0 8px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.90), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.20)",
               }}
             >
-              {/* Compact cursor-following frosted silver spotlight reflection */}
+              {/* Compact cursor-following frosted light-blue spotlight reflection */}
               <div
                 className="pointer-events-none absolute inset-0 z-0 rounded-3xl opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 motion-reduce:hidden"
                 style={{
-                  background: "radial-gradient(circle 90px at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(255, 255, 255, 0.52) 0%, rgba(220, 224, 230, 0.22) 35%, transparent 75%)",
+                  background: "radial-gradient(circle 90px at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(186, 230, 253, 0.65) 0%, rgba(125, 211, 252, 0.28) 35%, transparent 75%)",
                 }}
                 aria-hidden="true"
               />
