@@ -213,20 +213,14 @@ export default function AboutPage() {
                 </div>
               </InteractiveCard>
 
-              <InteractiveCard
-                maxTilt={4}
-                className="rounded-2xl border border-white/60 hover:border-white/85 p-5 sm:p-6 transition-all duration-300"
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="mailto:support.zeon@xeops.in"
+                className="group flex w-full sm:w-auto items-center justify-center gap-3 rounded-full border border-[#E8E6DF] bg-[#FAFAF8] px-7 py-3.5 text-sm font-medium text-[#141414] shadow-sm transition-all hover:border-[#141414] hover:bg-white active:scale-95"
               >
-                <div>
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#141414] text-white text-xs font-bold mb-3 sm:mb-4">
-                    2
-                  </div>
-                  <h4 className="font-semibold text-sm sm:text-base text-[#141414]">Engineered for Speed</h4>
-                  <p className="mt-1.5 text-xs text-[#5A5A5A] leading-relaxed">
-                    Fast interactions, instant cloud synchronization, and responsive feedback across desktop and mobile.
-                  </p>
-                </div>
-              </InteractiveCard>
+                <Mail className="h-4 w-4 text-[#737373] transition-colors group-hover:text-[#141414]" />
+                <span>support.zeon@xeops.in</span>
+              </a>
 
               <InteractiveCard
                 maxTilt={4}
