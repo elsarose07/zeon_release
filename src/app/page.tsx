@@ -9,7 +9,7 @@ import { Footer } from "@/components/Footer";
 export default function Home() {
   return (
     <div
-      className="relative min-h-screen overflow-hidden flex flex-col justify-between"
+      className="relative min-h-screen overflow-x-clip flex flex-col justify-between"
       style={{
         background: `
           radial-gradient(ellipse 70% 65% at 68% 42%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.18) 38%, transparent 68%),

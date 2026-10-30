@@ -31,10 +31,10 @@ const steps = [
 
 export function WorkflowSection() {
   return (
-    <section className="relative py-16 sm:py-24 max-w-6xl mx-auto px-6 sm:px-10 lg:px-8">
+    <section className="relative py-12 sm:py-24 max-w-6xl mx-auto px-4 sm:px-10 lg:px-8">
       {/* Background container styling */}
       <div
-        className="rounded-3xl border border-white/60 p-8 sm:p-14 transition-all duration-300 hover:border-white/85"
+        className="rounded-3xl border border-white/60 p-6 sm:p-14 transition-all duration-300 hover:border-white/85"
         style={{
           background: "linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%)",
           backdropFilter: "blur(14px) saturate(118%)",

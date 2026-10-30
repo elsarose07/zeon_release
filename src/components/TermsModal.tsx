@@ -40,7 +40,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-10">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 md:p-10">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -56,7 +56,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="relative z-10 flex max-h-[90vh] w-full max-w-2xl flex-col rounded-2xl border border-white/60 shadow-2xl overflow-hidden"
+            className="relative z-10 flex max-h-[85dvh] w-full max-w-2xl flex-col rounded-2xl border border-white/60 shadow-2xl overflow-hidden"
             style={{
               background:
                 "linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(228, 233, 240, 0.82) 50%, rgba(240, 243, 246, 0.85) 100%)",
@@ -65,16 +65,16 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
             }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-[#EFECE6] px-6 py-4 sm:px-8">
-              <div className="flex items-center gap-3.5">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F4F4F0] border border-[#E8E6DF] text-[#141414]">
-                  <FileText className="h-5 w-5" />
+            <div className="flex items-center justify-between border-b border-[#EFECE6] px-4 sm:px-8 py-3.5 sm:py-4">
+              <div className="flex items-center gap-3">
+                <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-[#F4F4F0] border border-[#E8E6DF] text-[#141414]">
+                  <FileText className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-[#141414]">
+                  <h2 className="text-base sm:text-lg font-bold text-[#141414]">
                     Terms of Service
                   </h2>
-                  <p className="text-xs text-[#737373]">
+                  <p className="text-[11px] sm:text-xs text-[#737373]">
                     Zeon • Commercial &amp; Evaluation Terms (India)
                   </p>
                 </div>
@@ -84,7 +84,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
               <button
                 type="button"
                 onClick={onClose}
-                className="rounded-lg p-1.5 text-[#737373] transition-colors hover:bg-[#F4F4F0] hover:text-[#141414]"
+                className="rounded-lg p-2 text-[#737373] transition-colors hover:bg-[#F4F4F0] hover:text-[#141414] touch-manipulation"
                 aria-label="Close dialog"
               >
                 <X className="h-5 w-5" />
@@ -92,13 +92,13 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
             </div>
 
             {/* Scrollable Body Content */}
-            <div className="flex-1 overflow-y-auto px-6 py-6 sm:px-8 space-y-6 text-sm text-[#4A4A4A] leading-relaxed">
+            <div className="flex-1 overflow-y-auto px-4 sm:px-8 py-5 sm:py-6 space-y-6 text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
               {/* Effective Date Pill Badge */}
               <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center rounded-md border border-white/60 bg-white/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#3A3A3A] backdrop-blur-sm">
+                <span className="inline-flex items-center rounded-md border border-white/60 bg-white/40 px-2.5 py-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#3A3A3A] backdrop-blur-sm">
                   EFFECTIVE: OCTOBER 2026 • COMMERCIAL &amp; EVALUATION TERMS (INDIA)
                 </span>
-                <span className="inline-flex items-center rounded-md border border-white/40 bg-white/20 px-3 py-1 text-[11px] font-medium text-[#5A5A5A]">
+                <span className="inline-flex items-center rounded-md border border-white/40 bg-white/20 px-2.5 py-1 text-[10px] sm:text-[11px] font-medium text-[#5A5A5A]">
                   Platform: Zeon by XEOPS • Warehouse &amp; Order Management
                 </span>
               </div>
@@ -113,7 +113,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
               {/* 1. Nature of Service & Scope */}
               <div className="space-y-2">
-                <div className="flex items-center gap-2 text-base font-bold text-[#141414]">
+                <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-[#141414]">
                   <Briefcase className="h-4 w-4 text-[#141414]" />
                   <h3>1. Nature of Service &amp; Scope</h3>
                 </div>
@@ -124,7 +124,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
               {/* 2. Client Onboarding & Complimentary Free Trial */}
               <div className="space-y-3">
-                <div className="flex items-center gap-2 text-base font-bold text-[#141414]">
+                <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-[#141414]">
                   <Sparkles className="h-4 w-4 text-[#141414]" />
                   <h3>2. Client Onboarding &amp; Complimentary Free Trial</h3>
                 </div>
@@ -168,7 +168,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
               {/* 3. User Accounts & Google Authentication */}
               <div className="space-y-2">
-                <div className="flex items-center gap-2 text-base font-bold text-[#141414]">
+                <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-[#141414]">
                   <CheckCircle2 className="h-4 w-4 text-[#141414]" />
                   <h3>3. User Accounts &amp; Google Authentication</h3>
                 </div>
@@ -181,7 +181,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
               {/* 4. Data Ownership & Intellectual Property */}
               <div className="space-y-2">
-                <div className="flex items-center gap-2 text-base font-bold text-[#141414]">
+                <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-[#141414]">
                   <Lock className="h-4 w-4 text-[#141414]" />
                   <h3>4. Data Ownership &amp; Intellectual Property</h3>
                 </div>
@@ -194,7 +194,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
               {/* 5. Audit Logs & Tamper-Proof Records */}
               <div className="space-y-2">
-                <div className="flex items-center gap-2 text-base font-bold text-[#141414]">
+                <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-[#141414]">
                   <FileText className="h-4 w-4 text-[#141414]" />
                   <h3>5. Audit Logs &amp; Tamper-Proof Records</h3>
                 </div>
@@ -205,7 +205,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
               {/* 6. Termination */}
               <div className="space-y-2">
-                <div className="flex items-center gap-2 text-base font-bold text-[#141414]">
+                <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-[#141414]">
                   <X className="h-4 w-4 text-[#141414]" />
                   <h3>6. Termination</h3>
                 </div>
@@ -216,7 +216,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
               {/* 7. Governing Law & Dispute Resolution */}
               <div className="space-y-2">
-                <div className="flex items-center gap-2 text-base font-bold text-[#141414]">
+                <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-[#141414]">
                   <Scale className="h-4 w-4 text-[#141414]" />
                   <h3>7. Governing Law &amp; Dispute Resolution</h3>
                 </div>
@@ -227,7 +227,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
               {/* 8. Support, Contact & Inquiries */}
               <div className="space-y-2 pb-2">
-                <div className="flex items-center gap-2 text-base font-bold text-[#141414]">
+                <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-[#141414]">
                   <Building2 className="h-4 w-4 text-[#141414]" />
                   <h3>8. Support, Contact &amp; Inquiries</h3>
                 </div>
@@ -241,14 +241,14 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
             </div>
 
             {/* Modal Bottom Bar */}
-            <div className="flex items-center justify-between border-t border-[#EFECE6] bg-[#FAFAF8] px-6 py-4 sm:px-8">
+            <div className="flex items-center justify-between border-t border-[#EFECE6] bg-[#FAFAF8] px-4 sm:px-8 py-3.5 sm:py-4">
               <span className="text-xs text-[#737373]" suppressHydrationWarning>
                 © {new Date().getFullYear()} Zeon
               </span>
               <button
                 type="button"
                 onClick={onClose}
-                className="rounded-lg bg-[#141414] px-5 py-2 text-xs font-semibold text-white shadow-sm transition-all hover:bg-[#262626] active:scale-95"
+                className="rounded-lg bg-[#141414] px-5 py-2 text-xs font-semibold text-white shadow-sm transition-all hover:bg-[#262626] active:scale-95 touch-manipulation"
               >
                 Understood
               </button>

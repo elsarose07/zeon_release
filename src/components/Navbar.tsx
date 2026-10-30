@@ -30,6 +30,29 @@ export function Navbar() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [mobileMenuOpen]);
 
+  // Prevent background scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
+  // Close mobile menu on screen resize to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <>
       <header
@@ -39,15 +62,15 @@ export function Navbar() {
             : "border-b border-transparent bg-transparent"
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 sm:px-10 lg:px-14">
-          {/* Brand Logo (Preserved as requested) */}
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-8 lg:px-14 py-4 sm:py-5">
+          {/* Brand Logo */}
           <Link href="/" className="flex items-center group">
             <Image
               src="/brand.png"
               alt="ZEON"
               width={140}
               height={40}
-              className="h-8 sm:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
+              className="h-7 sm:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
               priority
             />
           </Link>
@@ -90,7 +113,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-[#141414] focus:outline-none"
+              className="p-2 -mr-1.5 text-[#141414] focus:outline-none touch-manipulation rounded-lg active:bg-black/5"
               aria-label="Toggle Menu"
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
@@ -114,7 +137,7 @@ export function Navbar() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setMobileMenuOpen(false)}
-                className="fixed inset-0 top-[72px] sm:top-[76px] z-30 bg-black/20 backdrop-blur-sm md:hidden"
+                className="fixed inset-0 top-[64px] sm:top-[76px] z-30 bg-black/25 backdrop-blur-sm md:hidden h-[calc(100dvh-64px)] sm:h-[calc(100dvh-76px)]"
               />
 
               {/* Mobile Drawer */}
@@ -124,35 +147,35 @@ export function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.2 }}
-                className="relative z-40 border-b border-black/10 bg-[#E8EBED]/95 px-6 py-5 backdrop-blur-xl md:hidden shadow-lg"
+                className="relative z-40 border-b border-black/10 bg-[#E8EBED]/98 px-6 py-6 backdrop-blur-2xl md:hidden shadow-xl"
               >
                 <nav className="flex flex-col gap-4 text-base font-medium text-[#404040]">
                   <Link
                     href="/product"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="py-1 hover:text-[#141414]"
+                    className="py-1.5 hover:text-[#141414] active:text-[#141414] text-lg font-semibold"
                   >
                     Product
                   </Link>
                   <Link
                     href="/help"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="py-1 hover:text-[#141414]"
+                    className="py-1.5 hover:text-[#141414] active:text-[#141414] text-lg font-semibold"
                   >
                     Help
                   </Link>
                   <Link
                     href="/about"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="py-1 hover:text-[#141414]"
+                    className="py-1.5 hover:text-[#141414] active:text-[#141414] text-lg font-semibold"
                   >
                     About
                   </Link>
-                  <div className="pt-2 border-t border-black/10">
+                  <div className="pt-3 border-t border-black/10">
                     <Link
                       href="/product"
                       onClick={() => setMobileMenuOpen(false)}
-                      className="inline-flex items-center justify-between w-full rounded-full border border-[#141414]/30 bg-white/40 hover:bg-white/70 px-4 py-2 font-medium text-[#141414] backdrop-blur-sm shadow-sm transition-all duration-200"
+                      className="inline-flex items-center justify-between w-full rounded-full border border-[#141414]/30 bg-white/70 hover:bg-white px-5 py-3 font-semibold text-[#141414] shadow-sm transition-all duration-200 active:scale-[0.98]"
                     >
                       <span>Get started</span>
                       <ArrowRight className="h-4 w-4" />
@@ -166,7 +189,7 @@ export function Navbar() {
       </header>
 
       {/* Document flow spacer to preserve layout spacing when header is fixed */}
-      <div className="h-[72px] sm:h-[76px] w-full shrink-0" aria-hidden="true" />
+      <div className="h-[64px] sm:h-[76px] w-full shrink-0" aria-hidden="true" />
     </>
   );
 }

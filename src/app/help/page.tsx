@@ -205,7 +205,7 @@ export default function HelpPage() {
 
   return (
     <div
-      className="relative min-h-screen text-[#141414] flex flex-col justify-between overflow-hidden"
+      className="relative min-h-screen text-[#141414] flex flex-col justify-between overflow-x-clip"
       style={{
         background: `
           radial-gradient(ellipse 70% 65% at 68% 42%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.18) 38%, transparent 68%),
@@ -217,13 +217,13 @@ export default function HelpPage() {
       <div>
         <Navbar />
 
-        <main className="mx-auto max-w-5xl px-6 pt-28 pb-16 sm:px-10 sm:pt-32 sm:pb-20 lg:px-8 lg:pt-36 lg:pb-24">
+        <main className="mx-auto max-w-5xl px-4 pt-20 pb-14 sm:px-10 sm:pt-32 sm:pb-20 lg:px-8 lg:pt-36 lg:pb-24">
           {/* Header */}
-          <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
-            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#111111] leading-[1.02]">
-              Help <span className="font-serif italic font-normal text-[#5A5A5A] text-[0.88em] mx-1 sm:mx-2 select-none" style={{ fontFamily: "Georgia, 'Playfair Display', serif" }}>&amp;</span> Support
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-18">
+            <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#111111] leading-[1.02]">
+              Help <span className="font-serif italic font-normal text-[#5A5A5A] text-[0.88em] mx-1 sm:mx-2 select-none">&amp;</span> Support
             </h1>
-            <p className="mt-6 text-base sm:text-lg leading-relaxed text-[#4A4A4A] text-balance">
+            <p className="mt-4 sm:mt-6 text-sm sm:text-lg leading-relaxed text-[#4A4A4A] text-balance">
               Find answers to common questions about setting up, trials, privacy, data ownership, and managing your warehouse with Zeon.
             </p>
           </div>

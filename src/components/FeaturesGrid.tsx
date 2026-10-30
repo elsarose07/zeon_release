@@ -66,7 +66,7 @@ export function FeaturesGrid() {
   };
 
   return (
-    <section className="relative py-16 sm:py-24 max-w-6xl mx-auto px-6 sm:px-10 lg:px-8">
+    <section className="relative py-12 sm:py-24 max-w-6xl mx-auto px-4 sm:px-10 lg:px-8">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
         <motion.h2
@@ -74,7 +74,7 @@ export function FeaturesGrid() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-[#141414]"
+          className="font-serif text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight text-[#141414]"
         >
           Business, brought together.
         </motion.h2>
@@ -84,7 +84,7 @@ export function FeaturesGrid() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-          className="mt-4 text-base sm:text-lg text-[#5A5A5A] text-balance"
+          className="mt-3 sm:mt-4 text-sm sm:text-lg text-[#5A5A5A] text-balance"
         >
           Orders, inventory, customers, and teams — all working together in one seamless workspace.
         </motion.p>
@@ -108,7 +108,7 @@ export function FeaturesGrid() {
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
               onPointerMove={handlePointerMove}
               onPointerEnter={handlePointerMove}
-              className="group relative flex flex-col justify-between rounded-3xl border border-white/60 p-7 sm:p-8 overflow-hidden transition-all duration-300 hover:border-white/85 hover:shadow-[0_20px_48px_-10px_rgba(15,23,42,0.14)]"
+              className="group relative flex flex-col justify-between rounded-3xl border border-white/60 p-6 sm:p-8 overflow-hidden transition-all duration-300 hover:border-white/85 hover:shadow-[0_20px_48px_-10px_rgba(15,23,42,0.14)]"
               style={{
                 background: "linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%)",
                 backdropFilter: "blur(14px) saturate(118%)",

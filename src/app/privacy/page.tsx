@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <div
-      className="relative min-h-screen text-[#141414] flex flex-col justify-between overflow-hidden"
+      className="relative min-h-screen text-[#141414] flex flex-col justify-between overflow-x-clip"
       style={{
         background: `
           radial-gradient(ellipse 70% 65% at 68% 42%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.18) 38%, transparent 68%),
