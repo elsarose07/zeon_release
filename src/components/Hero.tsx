@@ -1,11 +1,11 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-/* ─── tiny icon SVGs matching the reference image ─── */
+/* â”€â”€â”€ tiny icon SVGs matching the reference image â”€â”€â”€ */
 
 function IconCustomers() {
   return (
@@ -55,7 +55,7 @@ function IconArrow() {
   );
 }
 
-/* ─── Glass card component ─── */
+/* â”€â”€â”€ Glass card component â”€â”€â”€ */
 interface GlassCardProps {
   children: React.ReactNode;
   className?: string;
@@ -63,6 +63,8 @@ interface GlassCardProps {
 }
 
 function GlassCard({ children, className = "", style }: GlassCardProps) {
+  // Derive corner radius for inner rim decorations from the style override (if any)
+  const rimRadius = (style?.borderRadius as string) ?? "14px";
   return (
     <div
       className={`relative rounded-[16px] sm:rounded-[18px] md:rounded-[20px] overflow-hidden ${className}`}
@@ -87,7 +89,7 @@ function GlassCard({ children, className = "", style }: GlassCardProps) {
         style={{
           height: "1.5px",
           background: "linear-gradient(90deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 85%, rgba(255,255,255,0.3) 100%)",
-          borderRadius: "14px 14px 0 0",
+          borderRadius: `${rimRadius} ${rimRadius} 0 0`,
         }}
       />
       {/* Left-edge rim light */}
@@ -113,7 +115,7 @@ function GlassCard({ children, className = "", style }: GlassCardProps) {
   );
 }
 
-/* ─── Arrow button (small round) ─── */
+/* â”€â”€â”€ Arrow button (small round) â”€â”€â”€ */
 function ArrowBtn() {
   return (
     <div
@@ -130,7 +132,7 @@ function ArrowBtn() {
   );
 }
 
-/* ─── Icon container (embossed circular capsule like reference) ─── */
+/* â”€â”€â”€ Icon container (embossed circular capsule like reference) â”€â”€â”€ */
 function IconBox({ children }: { children: React.ReactNode }) {
   return (
     <div
@@ -147,7 +149,7 @@ function IconBox({ children }: { children: React.ReactNode }) {
   );
 }
 
-/* ─── Interactive 3D Cursor-Tracking Tilt Card Component ─── */
+/* â”€â”€â”€ Interactive 3D Cursor-Tracking Tilt Card Component â”€â”€â”€ */
 interface TiltCardProps {
   children: React.ReactNode;
   baseRotate: number;
@@ -224,7 +226,7 @@ function TiltCard({ children, baseRotate, className = "", style }: TiltCardProps
   );
 }
 
-/* ─── Shared 3D Crystal Glass Sphere Component ─── */
+/* â”€â”€â”€ Shared 3D Crystal Glass Sphere Component â”€â”€â”€ */
 function CentralGlassOrb() {
   return (
     <div className="absolute inset-0 w-full h-full">
@@ -321,13 +323,387 @@ function CentralGlassOrb() {
   );
 }
 
+/* â”€â”€â”€ Mobile Central Glass Orb (Matching Reference 1:1) â”€â”€â”€ */
+function MobileCentralGlassOrb() {
+  return (
+    <div className="absolute inset-0 w-full h-full">
+      {/* Soft ground shadow beneath orb */}
+      <div
+        className="absolute rounded-full pointer-events-none"
+        style={{
+          width: "90%",
+          height: "22%",
+          bottom: "-12%",
+          left: "5%",
+          background:
+            "radial-gradient(ellipse, rgba(15, 23, 42, 0.25) 0%, rgba(15, 23, 42, 0.06) 55%, transparent 75%)",
+          filter: "blur(14px)",
+        }}
+      />
+
+      {/* Pearlescent 3D Crystal Glass Sphere Body */}
+      <div
+        className="absolute inset-0 rounded-full flex items-center justify-center overflow-hidden"
+        style={{
+          background: `radial-gradient(circle at 36% 28%,
+            #FFFFFF 0%,
+            #F8FAFC 22%,
+            #EEF2F6 46%,
+            #E2E8F0 72%,
+            #CBD5E1 92%,
+            rgba(255, 255, 255, 0.95) 100%)`,
+          border: "1.5px solid rgba(255, 255, 255, 0.9)",
+          boxShadow: `
+            inset 0 2px 4px rgba(255, 255, 255, 1),
+            inset 0 -3px 8px rgba(15, 23, 42, 0.12),
+            inset 0 0 16px rgba(255, 255, 255, 0.5),
+            0 20px 45px -10px rgba(15, 23, 42, 0.22),
+            0 6px 16px rgba(15, 23, 42, 0.08)
+          `,
+        }}
+      >
+        {/* Top-left specular curved glass crescent highlight */}
+        <div
+          className="absolute rounded-full pointer-events-none"
+          style={{
+            width: "50%",
+            height: "24%",
+            top: "8%",
+            left: "10%",
+            background:
+              "radial-gradient(ellipse at 35% 45%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.6) 35%, rgba(255, 255, 255, 0.1) 65%, transparent 80%)",
+            transform: "rotate(-30deg)",
+            filter: "blur(0.8px)",
+          }}
+        />
+
+        {/* Specular pin-point glint */}
+        <div
+          className="absolute rounded-full pointer-events-none"
+          style={{
+            width: "8%",
+            height: "5%",
+            top: "13%",
+            left: "20%",
+            background: "#FFFFFF",
+            filter: "blur(0.3px)",
+            boxShadow: "0 0 4px #FFFFFF",
+          }}
+        />
+
+        {/* Bottom-right reflex rim reflection */}
+        <div
+          className="absolute rounded-full pointer-events-none"
+          style={{
+            width: "30%",
+            height: "14%",
+            bottom: "10%",
+            right: "10%",
+            background:
+              "radial-gradient(ellipse at center, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 75%)",
+            transform: "rotate(-28deg)",
+            filter: "blur(1.2px)",
+          }}
+        />
+
+        {/* Black Logo inside the sphere */}
+        <div style={{ position: "relative", zIndex: 10, width: "45%", height: "45%" }}>
+          <Image
+            src="/logo.png"
+            alt="Zeon"
+            fill
+            className="object-contain"
+            style={{ filter: "brightness(0)", opacity: 0.98 }}
+            priority
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* â”€â”€â”€ Mobile Scroll-Triggered Orbital Section (1:1 Replica) â”€â”€â”€ */
+function MobileHeroSection() {
+  const [cardsVisible, setCardsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const y = window.scrollY || document.documentElement.scrollTop;
+      // When user starts scrolling down even slightly, cards pop up
+      if (y > 15) {
+        setCardsVisible(true);
+      } else {
+        setCardsVisible(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  /* Each card pops out from the orb center toward its corner */
+  const cardAnim = (dx: number, dy: number, delay: number) => ({
+    initial: { opacity: 0, x: dx, y: dy, scale: 0.35 },
+    animate: cardsVisible
+      ? { opacity: 1, x: 0, y: 0, scale: 1 }
+      : { opacity: 0, x: dx, y: dy, scale: 0.35 },
+    transition: {
+      delay: delay * 0.08,
+      duration: 0.54,
+      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+    },
+  });
+
+  /* â”€â”€ OrbCard: Exact 1:1 replica of reference image â”€â”€ */
+  function OrbCard({
+    icon,
+    title,
+    desc,
+  }: {
+    icon: React.ReactNode;
+    title: string;
+    desc: React.ReactNode;
+  }) {
+    return (
+      <GlassCard
+        style={{
+          borderRadius: "20px",
+          background:
+            "linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(240, 244, 248, 0.45) 50%, rgba(255, 255, 255, 0.58) 100%)",
+          border: "1px solid rgba(255, 255, 255, 0.85)",
+          boxShadow:
+            "0 12px 30px -4px rgba(15, 23, 42, 0.10), 0 2px 8px -1px rgba(15, 23, 42, 0.05), inset 0 1.5px 0px rgba(255, 255, 255, 1)",
+        }}
+      >
+        <div
+          className="p-3 sm:p-3.5 flex flex-col justify-between"
+          style={{ minHeight: "116px" }}
+        >
+          {/* Top: Icon pill on left, Title + Subtext stacked on right */}
+          <div className="flex items-start gap-2.5">
+            <IconBox>{icon}</IconBox>
+            <div className="flex-1 min-w-0 pt-0.5">
+              <h3 className="text-[13px] sm:text-[14px] font-semibold text-[#090D16] tracking-tight leading-tight">
+                {title}
+              </h3>
+              <div className="text-[10px] sm:text-[11px] text-[#475569] leading-[1.3] font-normal mt-1">
+                {desc}
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom: Small circular arrow button at bottom-right */}
+          <div className="flex justify-end mt-1.5">
+            <ArrowBtn />
+          </div>
+        </div>
+      </GlassCard>
+    );
+  }
+
+  return (
+    <div className="relative w-full flex flex-col items-center">
+      {/* â”€â”€ 360px tall orbital stage â”€â”€ */}
+      <div className="relative w-full select-none" style={{ height: "360px" }}>
+        {/* â”€â”€ Orbital rings + glowing sparkles (z-5) â”€â”€ */}
+        <svg
+          viewBox="0 0 360 360"
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          style={{ zIndex: 5 }}
+          fill="none"
+        >
+          <defs>
+            <filter id="starGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="2.2" />
+            </filter>
+          </defs>
+
+          {/* Outer ring */}
+          <ellipse
+            cx="180"
+            cy="180"
+            rx="160"
+            ry="66"
+            stroke="rgba(148, 163, 184, 0.40)"
+            strokeWidth="1.2"
+            transform="rotate(-9 180 180)"
+          />
+
+          {/* Inner ring */}
+          <ellipse
+            cx="180"
+            cy="180"
+            rx="128"
+            ry="52"
+            stroke="rgba(148, 163, 184, 0.30)"
+            strokeWidth="1.1"
+            transform="rotate(-3 180 180)"
+          />
+
+          {/* Sparkle flare: upper-left orb junction */}
+          <g transform="translate(136, 136)">
+            <circle cx="0" cy="0" r="2.5" fill="#FFFFFF" />
+            <circle cx="0" cy="0" r="6.5" fill="rgba(255,255,255,0.6)" filter="url(#starGlow)" />
+            <line x1="-7" y1="0" x2="7" y2="0" stroke="rgba(255,255,255,0.85)" strokeWidth="0.8" />
+            <line x1="0" y1="-7" x2="0" y2="7" stroke="rgba(255,255,255,0.85)" strokeWidth="0.8" />
+          </g>
+
+          {/* Sparkle node: lower-left ring */}
+          <g transform="translate(126, 198)">
+            <circle cx="0" cy="0" r="2.5" fill="#FFFFFF" />
+            <circle cx="0" cy="0" r="6" fill="rgba(255,255,255,0.5)" filter="url(#starGlow)" />
+          </g>
+
+          {/* Sparkle node: right ring */}
+          <g transform="translate(252, 166)">
+            <circle cx="0" cy="0" r="3" fill="#FFFFFF" />
+            <circle cx="0" cy="0" r="7" fill="rgba(255,255,255,0.55)" filter="url(#starGlow)" />
+          </g>
+
+          {/* Sparkle node: bottom ring */}
+          <g transform="translate(186, 244)">
+            <circle cx="0" cy="0" r="2" fill="#FFFFFF" />
+            <circle cx="0" cy="0" r="5" fill="rgba(255,255,255,0.4)" filter="url(#starGlow)" />
+          </g>
+
+          {/* Sparkle node: far left ring */}
+          <g transform="translate(36, 194)">
+            <circle cx="0" cy="0" r="1.8" fill="#FFFFFF" />
+            <circle cx="0" cy="0" r="4.5" fill="rgba(255,255,255,0.35)" filter="url(#starGlow)" />
+          </g>
+        </svg>
+
+        {/* â”€â”€ Central Glass Orb (z-20, always overlapping corners of cards) â”€â”€ */}
+        <div
+          className="absolute"
+          style={{
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "126px",
+            height: "126px",
+            zIndex: 20,
+          }}
+        >
+          <motion.div
+            animate={{ y: [0, -5, 0] }}
+            transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+            className="w-full h-full relative"
+          >
+            <MobileCentralGlassOrb />
+          </motion.div>
+        </div>
+
+        {/* â”€â”€ CARD 1: Customers (top-left) â”€â”€ */}
+        <motion.div
+          style={{ position: "absolute", top: "4%", left: "0%", width: "48%", zIndex: 10 }}
+          {...cardAnim(42, 42, 0)}
+        >
+          <Link href="/product" className="block active:scale-[0.98] transition-transform">
+            <OrbCard
+              icon={<IconCustomers />}
+              title="Customers"
+              desc={
+                <>
+                  Manage your
+                  <br />
+                  customers with ease.
+                </>
+              }
+            />
+          </Link>
+        </motion.div>
+
+        {/* â”€â”€ CARD 2: Orders (top-right, slightly higher) â”€â”€ */}
+        <motion.div
+          style={{ position: "absolute", top: "0%", right: "0%", width: "48%", zIndex: 10 }}
+          {...cardAnim(-42, 42, 1)}
+        >
+          <Link href="/product" className="block active:scale-[0.98] transition-transform">
+            <OrbCard
+              icon={<IconOrders />}
+              title="Orders"
+              desc={
+                <>
+                  Track and manage
+                  <br />
+                  orders in real time.
+                </>
+              }
+            />
+          </Link>
+        </motion.div>
+
+        {/* â”€â”€ CARD 3: Team (bottom-left) â”€â”€ */}
+        <motion.div
+          style={{ position: "absolute", top: "52%", left: "0%", width: "48%", zIndex: 10 }}
+          {...cardAnim(42, -42, 2)}
+        >
+          <Link href="/product" className="block active:scale-[0.98] transition-transform">
+            <OrbCard
+              icon={<IconTeam />}
+              title="Team"
+              desc={
+                <>
+                  Collaborate and
+                  <br />
+                  achieve more.
+                </>
+              }
+            />
+          </Link>
+        </motion.div>
+
+        {/* â”€â”€ CARD 4: Business Growth (bottom-right, slightly lower) â”€â”€ */}
+        <motion.div
+          style={{ position: "absolute", top: "57%", right: "0%", width: "48%", zIndex: 10 }}
+          {...cardAnim(-42, -42, 3)}
+        >
+          <Link href="/product" className="block active:scale-[0.98] transition-transform">
+            <OrbCard
+              icon={<IconBarChart />}
+              title="Business Growth"
+              desc={
+                <>
+                  Total Revenue
+                  <br />
+                  (This Month)
+                </>
+              }
+            />
+          </Link>
+        </motion.div>
+      </div>
+
+      {/* â”€â”€ Scroll to explore indicator at bottom â”€â”€ */}
+      <div className="flex flex-col items-center mt-6 mb-2 pointer-events-none select-none">
+        <div className="flex flex-col items-center" style={{ height: 28 }}>
+          <motion.div
+            className="w-px rounded-full"
+            style={{ background: "rgba(100,110,130,0.55)" }}
+            animate={{ height: [8, 22, 8] }}
+            transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+          />
+        </div>
+        <span
+          className="text-[9px] font-medium tracking-[0.18em] uppercase mt-1"
+          style={{ color: "rgba(100,110,130,0.70)" }}
+        >
+          Scroll to explore
+        </span>
+      </div>
+    </div>
+  );
+}
+
+
 export function Hero() {
   return (
     <section className="relative overflow-visible min-h-[calc(100vh-64px)] sm:min-h-[calc(100vh-76px)] flex flex-col justify-center pt-3 pb-8 sm:pt-6 sm:pb-10 lg:pt-8 lg:pb-12">
       <div className="w-full mx-auto max-w-7xl px-4 sm:px-8 lg:px-14">
         <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-0">
 
-          {/* ─── LEFT COLUMN ─── */}
+          {/* â”€â”€â”€ LEFT COLUMN â”€â”€â”€ */}
           <div className="lg:col-span-5 text-left">
 
             {/* Headline */}
@@ -378,7 +754,7 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* ─── RIGHT COLUMN (DESKTOP & TABLET >= md): Full 3D Orbital Composition ─── */}
+          {/* â”€â”€â”€ RIGHT COLUMN (DESKTOP & TABLET >= md): Full 3D Orbital Composition â”€â”€â”€ */}
           <div className="hidden md:flex lg:col-span-7 relative items-center justify-center lg:justify-end mt-8 lg:mt-0 w-full select-none lg:translate-x-6 xl:translate-x-10">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -392,7 +768,7 @@ export function Hero() {
                 transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
                 className="relative w-full h-full"
               >
-                {/* LAYER 1 — RINGS (z-10, behind everything) */}
+                {/* LAYER 1 â€” RINGS (z-10, behind everything) */}
                 <svg
                   viewBox="0 0 800 620"
                   className="absolute inset-0 w-full h-full pointer-events-none"
@@ -437,7 +813,7 @@ export function Hero() {
                   </g>
                 </svg>
 
-                {/* LAYER 2 — CENTRAL GLASS ORB (z-20) */}
+                {/* LAYER 2 â€” CENTRAL GLASS ORB (z-20) */}
                 <div
                   className="absolute aspect-square"
                   style={{
@@ -451,7 +827,7 @@ export function Hero() {
                   <CentralGlassOrb />
                 </div>
 
-                {/* LAYER 3 — FRONT ARCS (z-30) */}
+                {/* LAYER 3 â€” FRONT ARCS (z-30) */}
                 <svg
                   viewBox="0 0 800 620"
                   className="absolute inset-0 w-full h-full pointer-events-none"
@@ -476,7 +852,7 @@ export function Hero() {
                   </g>
                 </svg>
 
-                {/* LAYER 4 — GLASSMORPHIC CARDS (z-40) */}
+                {/* LAYER 4 â€” GLASSMORPHIC CARDS (z-40) */}
                 {/* CARD 1: Customers */}
                 <TiltCard baseRotate={-5} style={{ position: "absolute", zIndex: 40, top: "5.5%", left: "0%", width: "42%", maxWidth: "310px" }}>
                   <Link href="/product">
@@ -580,99 +956,14 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* ─── RIGHT COLUMN (MOBILE < md): Responsive Stack with Orb & Un-cramped Cards ─── */}
+          {/* â”€â”€â”€ RIGHT COLUMN (MOBILE < md): Scroll-triggered Orb + Cards â”€â”€â”€ */}
           <div className="block md:hidden mt-6 w-full">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col items-center"
             >
-              {/* Central Translucent Sphere with Floating Ambient Rings */}
-              <div className="relative w-40 h-40 sm:w-48 sm:h-48 my-2 flex items-center justify-center">
-                {/* Subtle orbital ring SVG behind mobile orb */}
-                <svg
-                  viewBox="0 0 200 200"
-                  className="absolute -inset-4 w-[calc(100%+32px)] h-[calc(100%+32px)] pointer-events-none"
-                  fill="none"
-                >
-                  <ellipse cx="100" cy="100" rx="90" ry="42" stroke="rgba(92, 112, 128, 0.35)" strokeWidth="1.2" transform="rotate(-15 100 100)" />
-                  <ellipse cx="100" cy="100" rx="76" ry="34" stroke="rgba(92, 112, 128, 0.25)" strokeWidth="1.1" transform="rotate(-5 100 100)" />
-                </svg>
-
-                <CentralGlassOrb />
-              </div>
-
-              {/* 4 Cards in Responsive 2x2 Clean Grid on Mobile */}
-              <div className="grid grid-cols-2 gap-3 w-full mt-4">
-                {/* Mobile Card 1: Customers */}
-                <Link href="/product" className="block active:scale-[0.98] transition-transform">
-                  <GlassCard className="h-full">
-                    <div className="p-3.5 flex flex-col justify-between h-full">
-                      <div>
-                        <div className="flex items-center justify-between mb-2">
-                          <IconBox><IconCustomers /></IconBox>
-                          <div className="w-1.5 h-1.5 rounded-full bg-slate-400/80" />
-                        </div>
-                        <h3 className="text-sm font-semibold text-[#090D16]">Customers</h3>
-                        <p className="text-[11px] text-[#334155] leading-snug mt-1 font-medium">Manage with ease.</p>
-                      </div>
-                      <div className="flex justify-end mt-2"><ArrowBtn /></div>
-                    </div>
-                  </GlassCard>
-                </Link>
-
-                {/* Mobile Card 2: Orders */}
-                <Link href="/product" className="block active:scale-[0.98] transition-transform">
-                  <GlassCard className="h-full">
-                    <div className="p-3.5 flex flex-col justify-between h-full">
-                      <div>
-                        <div className="flex items-center justify-between mb-2">
-                          <IconBox><IconOrders /></IconBox>
-                          <div className="w-1.5 h-1.5 rounded-full bg-slate-400/80" />
-                        </div>
-                        <h3 className="text-sm font-semibold text-[#090D16]">Orders</h3>
-                        <p className="text-[11px] text-[#334155] leading-snug mt-1 font-medium">Track in real time.</p>
-                      </div>
-                      <div className="flex justify-end mt-2"><ArrowBtn /></div>
-                    </div>
-                  </GlassCard>
-                </Link>
-
-                {/* Mobile Card 3: Team */}
-                <Link href="/product" className="block active:scale-[0.98] transition-transform">
-                  <GlassCard className="h-full">
-                    <div className="p-3.5 flex flex-col justify-between h-full">
-                      <div>
-                        <div className="flex items-center justify-between mb-2">
-                          <IconBox><IconTeam /></IconBox>
-                          <div className="w-1.5 h-1.5 rounded-full bg-slate-400/80" />
-                        </div>
-                        <h3 className="text-sm font-semibold text-[#090D16]">Team</h3>
-                        <p className="text-[11px] text-[#334155] leading-snug mt-1 font-medium">Collaborate fast.</p>
-                      </div>
-                      <div className="flex justify-end mt-2"><ArrowBtn /></div>
-                    </div>
-                  </GlassCard>
-                </Link>
-
-                {/* Mobile Card 4: Business Growth */}
-                <Link href="/product" className="block active:scale-[0.98] transition-transform">
-                  <GlassCard className="h-full">
-                    <div className="p-3.5 flex flex-col justify-between h-full">
-                      <div>
-                        <div className="flex items-center justify-between mb-1.5">
-                          <IconBox><IconBarChart /></IconBox>
-                          <span className="text-sm font-bold text-[#090D16]">+32%</span>
-                        </div>
-                        <h3 className="text-sm font-semibold text-[#090D16]">Growth</h3>
-                        <p className="text-[10px] text-[#475569] leading-tight mt-0.5 font-medium">Monthly revenue</p>
-                      </div>
-                      <div className="flex justify-end mt-2"><ArrowBtn /></div>
-                    </div>
-                  </GlassCard>
-                </Link>
-              </div>
+              <MobileHeroSection />
             </motion.div>
           </div>
 
