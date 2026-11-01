@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -43,7 +43,7 @@ export default function AboutPage() {
             </h1>
 
             <p className="mt-4 sm:mt-6 text-sm sm:text-lg leading-relaxed text-[#4A4A4A] text-balance">
-              We believe great software should be calm, dependable, and invisible in your day-to-day operations—empowering teams to move forward without friction or clutter.
+              We believe great software should be calm, dependable, and invisible in your day-to-day operationsâ€”empowering teams to move forward without friction or clutter.
             </p>
           </div>
 
@@ -67,7 +67,7 @@ export default function AboutPage() {
                     Philosophy &amp; Mission
                   </h2>
                   <p className="mt-1 text-xs text-[#737373]">
-                    Simplicity First • Distraction-Free Workspaces
+                    Simplicity First â€¢ Distraction-Free Workspaces
                   </p>
                 </div>
 
@@ -122,7 +122,7 @@ export default function AboutPage() {
                     Trust &amp; Direct Support
                   </h2>
                   <p className="mt-1 text-xs text-[#737373]">
-                    Security Standards • Direct Personal Assistance
+                    Security Standards â€¢ Direct Personal Assistance
                   </p>
                 </div>
 
@@ -160,7 +160,7 @@ export default function AboutPage() {
             </InteractiveCard>
           </div>
 
-          {/* Secondary Banner — Explore Products */}
+          {/* Secondary Banner â€” Explore Products */}
           <div className="mt-6 sm:mt-8 max-w-5xl mx-auto">
             <InteractiveCard
               maxTilt={3}
@@ -237,6 +237,7 @@ export default function AboutPage() {
                 </div>
               </InteractiveCard>
             </div>
+          </div>
           </div>
         </main>
       </div>

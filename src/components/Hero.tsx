@@ -323,7 +323,7 @@ function CentralGlassOrb() {
   );
 }
 
-/* â”€â”€â”€ Mobile Central Glass Orb (Matching Reference 1:1) â”€â”€â”€ */
+/* â”€â”€â”€ Mobile Central Glass Orb (Exact Reference 1:1) â”€â”€â”€ */
 function MobileCentralGlassOrb() {
   return (
     <div className="absolute inset-0 w-full h-full">
@@ -332,12 +332,12 @@ function MobileCentralGlassOrb() {
         className="absolute rounded-full pointer-events-none"
         style={{
           width: "90%",
-          height: "22%",
-          bottom: "-12%",
+          height: "20%",
+          bottom: "-10%",
           left: "5%",
           background:
-            "radial-gradient(ellipse, rgba(15, 23, 42, 0.25) 0%, rgba(15, 23, 42, 0.06) 55%, transparent 75%)",
-          filter: "blur(14px)",
+            "radial-gradient(ellipse, rgba(15, 23, 42, 0.22) 0%, rgba(15, 23, 42, 0.05) 55%, transparent 75%)",
+          filter: "blur(12px)",
         }}
       />
 
@@ -357,8 +357,8 @@ function MobileCentralGlassOrb() {
             inset 0 2px 4px rgba(255, 255, 255, 1),
             inset 0 -3px 8px rgba(15, 23, 42, 0.12),
             inset 0 0 16px rgba(255, 255, 255, 0.5),
-            0 20px 45px -10px rgba(15, 23, 42, 0.22),
-            0 6px 16px rgba(15, 23, 42, 0.08)
+            0 18px 40px -10px rgba(15, 23, 42, 0.20),
+            0 4px 14px rgba(15, 23, 42, 0.06)
           `,
         }}
       >
@@ -422,14 +422,58 @@ function MobileCentralGlassOrb() {
   );
 }
 
-/* â”€â”€â”€ Mobile Scroll-Triggered Orbital Section (1:1 Replica) â”€â”€â”€ */
+/* â”€â”€â”€ Mobile Small Circular Components (Exact Scale for Mobile Cards) â”€â”€â”€ */
+function MobileIconBox({ children }: { children: React.ReactNode }) {
+  return (
+    <div
+      className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 pointer-events-none"
+      style={{
+        background: "linear-gradient(145deg, #FFFFFF 0%, #E8EEF5 100%)",
+        border: "1px solid rgba(255, 255, 255, 0.92)",
+        boxShadow:
+          "0 1.5px 4px rgba(15, 23, 42, 0.06), inset 0 1px 1px #FFFFFF, inset 0 -1px 1.5px rgba(150, 165, 180, 0.15)",
+        color: "#0F172A",
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+function MobileArrowBtn() {
+  return (
+    <div
+      className="w-5.5 h-5.5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 pointer-events-none"
+      style={{
+        background: "linear-gradient(145deg, #FFFFFF 0%, #EDF2F7 100%)",
+        border: "1px solid rgba(255, 255, 255, 0.95)",
+        boxShadow: "0 1px 3px rgba(15, 23, 42, 0.08), inset 0 1px 1px #FFFFFF",
+        color: "#0F172A",
+      }}
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        className="w-2.5 h-2.5 sm:w-3 sm:h-3 pointer-events-none"
+        stroke="#0F172A"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <line x1="5" y1="12" x2="19" y2="12" />
+        <polyline points="12 5 19 12 12 19" />
+      </svg>
+    </div>
+  );
+}
+
+/* â”€â”€â”€ Mobile Scroll-Triggered Orbital Section (1:1 Exact Replica) â”€â”€â”€ */
 function MobileHeroSection() {
   const [cardsVisible, setCardsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const y = window.scrollY || document.documentElement.scrollTop;
-      // When user starts scrolling down even slightly, cards pop up
       if (y > 15) {
         setCardsVisible(true);
       } else {
@@ -443,10 +487,10 @@ function MobileHeroSection() {
 
   /* Each card pops out from the orb center toward its corner */
   const cardAnim = (dx: number, dy: number, delay: number) => ({
-    initial: { opacity: 0, x: dx, y: dy, scale: 0.35 },
+    initial: { opacity: 0, x: dx, y: dy, scale: 0.25 },
     animate: cardsVisible
       ? { opacity: 1, x: 0, y: 0, scale: 1 }
-      : { opacity: 0, x: dx, y: dy, scale: 0.35 },
+      : { opacity: 0, x: dx, y: dy, scale: 0.25 },
     transition: {
       delay: delay * 0.08,
       duration: 0.54,
@@ -467,34 +511,31 @@ function MobileHeroSection() {
     return (
       <GlassCard
         style={{
-          borderRadius: "20px",
+          borderRadius: "18px",
           background:
-            "linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(240, 244, 248, 0.45) 50%, rgba(255, 255, 255, 0.58) 100%)",
-          border: "1px solid rgba(255, 255, 255, 0.85)",
+            "linear-gradient(135deg, rgba(255, 255, 255, 0.78) 0%, rgba(240, 244, 248, 0.52) 50%, rgba(255, 255, 255, 0.68) 100%)",
+          border: "1px solid rgba(255, 255, 255, 0.90)",
           boxShadow:
-            "0 12px 30px -4px rgba(15, 23, 42, 0.10), 0 2px 8px -1px rgba(15, 23, 42, 0.05), inset 0 1.5px 0px rgba(255, 255, 255, 1)",
+            "0 10px 26px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px rgba(255, 255, 255, 1)",
         }}
       >
-        <div
-          className="p-3 sm:p-3.5 flex flex-col justify-between"
-          style={{ minHeight: "116px" }}
-        >
+        <div className="p-2.5 sm:p-3 flex flex-col justify-between min-h-[86px] sm:min-h-[92px]">
           {/* Top: Icon pill on left, Title + Subtext stacked on right */}
-          <div className="flex items-start gap-2.5">
-            <IconBox>{icon}</IconBox>
+          <div className="flex items-start gap-2">
+            <MobileIconBox>{icon}</MobileIconBox>
             <div className="flex-1 min-w-0 pt-0.5">
-              <h3 className="text-[13px] sm:text-[14px] font-semibold text-[#090D16] tracking-tight leading-tight">
+              <h3 className="text-[12px] sm:text-[13px] font-semibold text-[#090D16] tracking-tight leading-tight">
                 {title}
               </h3>
-              <div className="text-[10px] sm:text-[11px] text-[#475569] leading-[1.3] font-normal mt-1">
+              <div className="text-[9.5px] sm:text-[10px] text-[#475569] leading-[1.3] font-normal mt-0.5">
                 {desc}
               </div>
             </div>
           </div>
 
           {/* Bottom: Small circular arrow button at bottom-right */}
-          <div className="flex justify-end mt-1.5">
-            <ArrowBtn />
+          <div className="flex justify-end mt-1">
+            <MobileArrowBtn />
           </div>
         </div>
       </GlassCard>
@@ -503,11 +544,11 @@ function MobileHeroSection() {
 
   return (
     <div className="relative w-full flex flex-col items-center">
-      {/* â”€â”€ 360px tall orbital stage â”€â”€ */}
-      <div className="relative w-full select-none" style={{ height: "360px" }}>
+      {/* â”€â”€ 310px tall orbital stage (Proportional to 390px mobile viewport) â”€â”€ */}
+      <div className="relative w-full max-w-[370px] select-none" style={{ height: "310px" }}>
         {/* â”€â”€ Orbital rings + glowing sparkles (z-5) â”€â”€ */}
         <svg
-          viewBox="0 0 360 360"
+          viewBox="0 0 340 310"
           className="absolute inset-0 w-full h-full pointer-events-none"
           style={{ zIndex: 5 }}
           fill="none"
@@ -520,54 +561,54 @@ function MobileHeroSection() {
 
           {/* Outer ring */}
           <ellipse
-            cx="180"
-            cy="180"
-            rx="160"
-            ry="66"
-            stroke="rgba(148, 163, 184, 0.40)"
-            strokeWidth="1.2"
-            transform="rotate(-9 180 180)"
+            cx="170"
+            cy="155"
+            rx="148"
+            ry="62"
+            stroke="rgba(148, 163, 184, 0.38)"
+            strokeWidth="1.1"
+            transform="rotate(-9 170 155)"
           />
 
           {/* Inner ring */}
           <ellipse
-            cx="180"
-            cy="180"
-            rx="128"
-            ry="52"
-            stroke="rgba(148, 163, 184, 0.30)"
-            strokeWidth="1.1"
-            transform="rotate(-3 180 180)"
+            cx="170"
+            cy="155"
+            rx="118"
+            ry="48"
+            stroke="rgba(148, 163, 184, 0.28)"
+            strokeWidth="1.0"
+            transform="rotate(-3 170 155)"
           />
 
           {/* Sparkle flare: upper-left orb junction */}
-          <g transform="translate(136, 136)">
+          <g transform="translate(128, 114)">
             <circle cx="0" cy="0" r="2.5" fill="#FFFFFF" />
-            <circle cx="0" cy="0" r="6.5" fill="rgba(255,255,255,0.6)" filter="url(#starGlow)" />
-            <line x1="-7" y1="0" x2="7" y2="0" stroke="rgba(255,255,255,0.85)" strokeWidth="0.8" />
-            <line x1="0" y1="-7" x2="0" y2="7" stroke="rgba(255,255,255,0.85)" strokeWidth="0.8" />
+            <circle cx="0" cy="0" r="6" fill="rgba(255,255,255,0.6)" filter="url(#starGlow)" />
+            <line x1="-7" y1="0" x2="7" y2="0" stroke="rgba(255,255,255,0.9)" strokeWidth="0.8" />
+            <line x1="0" y1="-7" x2="0" y2="7" stroke="rgba(255,255,255,0.9)" strokeWidth="0.8" />
           </g>
 
           {/* Sparkle node: lower-left ring */}
-          <g transform="translate(126, 198)">
-            <circle cx="0" cy="0" r="2.5" fill="#FFFFFF" />
-            <circle cx="0" cy="0" r="6" fill="rgba(255,255,255,0.5)" filter="url(#starGlow)" />
+          <g transform="translate(120, 172)">
+            <circle cx="0" cy="0" r="2.2" fill="#FFFFFF" />
+            <circle cx="0" cy="0" r="5.5" fill="rgba(255,255,255,0.5)" filter="url(#starGlow)" />
           </g>
 
           {/* Sparkle node: right ring */}
-          <g transform="translate(252, 166)">
-            <circle cx="0" cy="0" r="3" fill="#FFFFFF" />
-            <circle cx="0" cy="0" r="7" fill="rgba(255,255,255,0.55)" filter="url(#starGlow)" />
+          <g transform="translate(242, 142)">
+            <circle cx="0" cy="0" r="2.8" fill="#FFFFFF" />
+            <circle cx="0" cy="0" r="6.5" fill="rgba(255,255,255,0.55)" filter="url(#starGlow)" />
           </g>
 
           {/* Sparkle node: bottom ring */}
-          <g transform="translate(186, 244)">
+          <g transform="translate(176, 215)">
             <circle cx="0" cy="0" r="2" fill="#FFFFFF" />
             <circle cx="0" cy="0" r="5" fill="rgba(255,255,255,0.4)" filter="url(#starGlow)" />
           </g>
 
           {/* Sparkle node: far left ring */}
-          <g transform="translate(36, 194)">
+          <g transform="translate(32, 170)">
             <circle cx="0" cy="0" r="1.8" fill="#FFFFFF" />
             <circle cx="0" cy="0" r="4.5" fill="rgba(255,255,255,0.35)" filter="url(#starGlow)" />
           </g>
@@ -580,13 +621,13 @@ function MobileHeroSection() {
             left: "50%",
             top: "50%",
             transform: "translate(-50%, -50%)",
-            width: "126px",
-            height: "126px",
+            width: "120px",
+            height: "120px",
             zIndex: 20,
           }}
         >
           <motion.div
-            animate={{ y: [0, -5, 0] }}
+            animate={{ y: [0, -4, 0] }}
             transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
             className="w-full h-full relative"
           >
@@ -596,8 +637,8 @@ function MobileHeroSection() {
 
         {/* â”€â”€ CARD 1: Customers (top-left) â”€â”€ */}
         <motion.div
-          style={{ position: "absolute", top: "4%", left: "0%", width: "48%", zIndex: 10 }}
-          {...cardAnim(42, 42, 0)}
+          style={{ position: "absolute", top: "7%", left: "1%", width: "49%", zIndex: 10 }}
+          {...cardAnim(38, 38, 0)}
         >
           <Link href="/product" className="block active:scale-[0.98] transition-transform">
             <OrbCard
@@ -616,8 +657,8 @@ function MobileHeroSection() {
 
         {/* â”€â”€ CARD 2: Orders (top-right, slightly higher) â”€â”€ */}
         <motion.div
-          style={{ position: "absolute", top: "0%", right: "0%", width: "48%", zIndex: 10 }}
-          {...cardAnim(-42, 42, 1)}
+          style={{ position: "absolute", top: "2%", right: "1%", width: "49%", zIndex: 10 }}
+          {...cardAnim(-38, 38, 1)}
         >
           <Link href="/product" className="block active:scale-[0.98] transition-transform">
             <OrbCard
@@ -634,10 +675,10 @@ function MobileHeroSection() {
           </Link>
         </motion.div>
 
-        {/* â”€â”€ CARD 3: Team (bottom-left) â”€â”€ */}
+        {/* â”€â”€ CARD 3: Team (bottom-left, slightly higher than Growth) â”€â”€ */}
         <motion.div
-          style={{ position: "absolute", top: "52%", left: "0%", width: "48%", zIndex: 10 }}
-          {...cardAnim(42, -42, 2)}
+          style={{ position: "absolute", bottom: "7%", left: "1%", width: "49%", zIndex: 10 }}
+          {...cardAnim(38, -38, 2)}
         >
           <Link href="/product" className="block active:scale-[0.98] transition-transform">
             <OrbCard
@@ -656,8 +697,8 @@ function MobileHeroSection() {
 
         {/* â”€â”€ CARD 4: Business Growth (bottom-right, slightly lower) â”€â”€ */}
         <motion.div
-          style={{ position: "absolute", top: "57%", right: "0%", width: "48%", zIndex: 10 }}
-          {...cardAnim(-42, -42, 3)}
+          style={{ position: "absolute", bottom: "2%", right: "1%", width: "49%", zIndex: 10 }}
+          {...cardAnim(-38, -38, 3)}
         >
           <Link href="/product" className="block active:scale-[0.98] transition-transform">
             <OrbCard
@@ -674,24 +715,6 @@ function MobileHeroSection() {
           </Link>
         </motion.div>
       </div>
-
-      {/* â”€â”€ Scroll to explore indicator at bottom â”€â”€ */}
-      <div className="flex flex-col items-center mt-6 mb-2 pointer-events-none select-none">
-        <div className="flex flex-col items-center" style={{ height: 28 }}>
-          <motion.div
-            className="w-px rounded-full"
-            style={{ background: "rgba(100,110,130,0.55)" }}
-            animate={{ height: [8, 22, 8] }}
-            transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
-          />
-        </div>
-        <span
-          className="text-[9px] font-medium tracking-[0.18em] uppercase mt-1"
-          style={{ color: "rgba(100,110,130,0.70)" }}
-        >
-          Scroll to explore
-        </span>
-      </div>
     </div>
   );
 }
@@ -699,12 +722,12 @@ function MobileHeroSection() {
 
 export function Hero() {
   return (
-    <section className="relative overflow-visible min-h-[calc(100vh-64px)] sm:min-h-[calc(100vh-76px)] flex flex-col justify-center pt-3 pb-8 sm:pt-6 sm:pb-10 lg:pt-8 lg:pb-12">
+    <section className="relative overflow-hidden min-h-[calc(100vh-64px)] sm:min-h-[calc(100vh-76px)] flex flex-col justify-center pt-3 pb-8 sm:pt-6 sm:pb-10 lg:pt-8 lg:pb-12">
       <div className="w-full mx-auto max-w-7xl px-4 sm:px-8 lg:px-14">
-        <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-0">
+        <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-0 w-full min-w-0">
 
           {/* â”€â”€â”€ LEFT COLUMN â”€â”€â”€ */}
-          <div className="lg:col-span-5 text-left">
+          <div className="lg:col-span-5 text-left w-full min-w-0">
 
             {/* Headline */}
             <motion.div
@@ -957,7 +980,7 @@ export function Hero() {
           </div>
 
           {/* â”€â”€â”€ RIGHT COLUMN (MOBILE < md): Scroll-triggered Orb + Cards â”€â”€â”€ */}
-          <div className="block md:hidden mt-6 w-full">
+          <div className="block md:hidden mt-4 w-full min-w-0 max-w-full">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
