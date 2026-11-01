@@ -545,7 +545,7 @@ function MobileHeroSection() {
   return (
     <div className="relative w-full flex flex-col items-center">
       {/* â”€â”€ 310px tall orbital stage (Proportional to 390px mobile viewport) â”€â”€ */}
-      <div className="relative w-full max-w-[370px] select-none" style={{ height: "310px" }}>
+      <div className="relative w-full max-w-[370px] select-none" style={{ height: "324px" }}>
         {/* â”€â”€ Orbital rings + glowing sparkles (z-5) â”€â”€ */}
         <svg
           viewBox="0 0 340 310"
@@ -637,7 +637,7 @@ function MobileHeroSection() {
 
         {/* â”€â”€ CARD 1: Customers (top-left) â”€â”€ */}
         <motion.div
-          style={{ position: "absolute", top: "7%", left: "1%", width: "49%", zIndex: 10 }}
+          style={{ position: "absolute", top: "4%", left: "0%", width: "46%", zIndex: 10 }}
           {...cardAnim(38, 38, 0)}
         >
           <Link href="/product" className="block active:scale-[0.98] transition-transform">
@@ -657,7 +657,7 @@ function MobileHeroSection() {
 
         {/* â”€â”€ CARD 2: Orders (top-right, slightly higher) â”€â”€ */}
         <motion.div
-          style={{ position: "absolute", top: "2%", right: "1%", width: "49%", zIndex: 10 }}
+          style={{ position: "absolute", top: "0%", right: "0%", width: "46%", zIndex: 10 }}
           {...cardAnim(-38, 38, 1)}
         >
           <Link href="/product" className="block active:scale-[0.98] transition-transform">
@@ -677,7 +677,7 @@ function MobileHeroSection() {
 
         {/* â”€â”€ CARD 3: Team (bottom-left, slightly higher than Growth) â”€â”€ */}
         <motion.div
-          style={{ position: "absolute", bottom: "7%", left: "1%", width: "49%", zIndex: 10 }}
+          style={{ position: "absolute", bottom: "4%", left: "0%", width: "46%", zIndex: 10 }}
           {...cardAnim(38, -38, 2)}
         >
           <Link href="/product" className="block active:scale-[0.98] transition-transform">
@@ -697,7 +697,7 @@ function MobileHeroSection() {
 
         {/* â”€â”€ CARD 4: Business Growth (bottom-right, slightly lower) â”€â”€ */}
         <motion.div
-          style={{ position: "absolute", bottom: "2%", right: "1%", width: "49%", zIndex: 10 }}
+          style={{ position: "absolute", bottom: "0%", right: "0%", width: "46%", zIndex: 10 }}
           {...cardAnim(-38, -38, 3)}
         >
           <Link href="/product" className="block active:scale-[0.98] transition-transform">
