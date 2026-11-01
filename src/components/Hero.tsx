@@ -736,7 +736,7 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
             >
               <h1
-                className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[84px] font-bold tracking-[-0.025em] text-[#111111] leading-[0.96]"
+                className="font-serif text-[50px] sm:text-6xl md:text-7xl lg:text-[78px] xl:text-[86px] font-bold tracking-[-0.025em] text-[#111111] leading-[0.96]"
               >
                 Zeon.
               </h1>
