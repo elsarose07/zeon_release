@@ -56,6 +56,52 @@ const features = [
   },
 ];
 
+const cardStyle: React.CSSProperties = {
+  background:
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%)",
+  backdropFilter: "blur(14px) saturate(118%)",
+  WebkitBackdropFilter: "blur(14px) saturate(118%)",
+  boxShadow:
+    "0 8px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.90), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.20)",
+};
+
+function CardInner({ feature }: { feature: (typeof features)[0] }) {
+  const Icon = feature.icon;
+  return (
+    <>
+      {/* Compact cursor-following frosted very-light-green spotlight reflection */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0 rounded-3xl opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 motion-reduce:hidden"
+        style={{
+          background:
+            "radial-gradient(circle 90px at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(187, 247, 208, 0.62) 0%, rgba(134, 239, 172, 0.25) 35%, transparent 75%)",
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10">
+        {/* Icon & Tag */}
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/45 border border-white/65 text-[#141414] backdrop-blur-sm transition-colors duration-200 group-hover:bg-[#141414] group-hover:text-white">
+            <Icon className="h-5 w-5" />
+          </div>
+          <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8A8A8A]">
+            {feature.tag}
+          </span>
+        </div>
+
+        {/* Title & Description */}
+        <h3 className="text-lg font-bold text-[#141414] tracking-tight">
+          {feature.title}
+        </h3>
+        <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-[#5A5A5A]">
+          {feature.description}
+        </p>
+      </div>
+    </>
+  );
+}
+
 export function FeaturesGrid() {
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -66,7 +112,7 @@ export function FeaturesGrid() {
   };
 
   return (
-    <section className="relative py-12 sm:py-24 max-w-6xl mx-auto px-4 sm:px-10 lg:px-8">
+    <section className="relative py-12 sm:py-24 max-w-6xl mx-auto px-4 sm:px-10 lg:px-8 overflow-x-clip">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
         <motion.h2
@@ -90,13 +136,52 @@ export function FeaturesGrid() {
         </motion.p>
       </div>
 
-      {/* Grid of Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* ─── MOBILE LAYOUT (< md): Stacked 1-Column with Alternating Fast Left / Right Pop-Up ─── */}
+      <div className="flex flex-col gap-6 md:hidden">
         {features.map((feature, idx) => {
-          const Icon = feature.icon;
+          const isFromLeft = idx % 2 === 0;
+
           return (
             <motion.div
-              key={feature.title}
+              key={`m-${feature.title}`}
+              initial={{
+                opacity: 0,
+                x: isFromLeft ? -80 : 80,
+                y: 16,
+                scale: 0.95,
+              }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+                y: 0,
+                scale: 1,
+              }}
+              viewport={{
+                once: true,
+                amount: 0.05,
+                margin: "0px 0px 40px 0px",
+              }}
+              transition={{
+                duration: 0.28,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              onPointerMove={handlePointerMove}
+              onPointerEnter={handlePointerMove}
+              className="group relative flex flex-col justify-between rounded-3xl border border-white/60 p-6 sm:p-8 overflow-hidden transition-all duration-300 hover:border-white/85 hover:shadow-[0_20px_48px_-10px_rgba(15,23,42,0.14)]"
+              style={cardStyle}
+            >
+              <CardInner feature={feature} />
+            </motion.div>
+          );
+        })}
+      </div>
+
+      {/* ─── DESKTOP LAYOUT (>= md): Responsive 2/3 Column Grid with Staggered Rise ─── */}
+      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {features.map((feature, idx) => {
+          return (
+            <motion.div
+              key={`d-${feature.title}`}
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
@@ -109,41 +194,9 @@ export function FeaturesGrid() {
               onPointerMove={handlePointerMove}
               onPointerEnter={handlePointerMove}
               className="group relative flex flex-col justify-between rounded-3xl border border-white/60 p-6 sm:p-8 overflow-hidden transition-all duration-300 hover:border-white/85 hover:shadow-[0_20px_48px_-10px_rgba(15,23,42,0.14)]"
-              style={{
-                background: "linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(228, 233, 240, 0.42) 50%, rgba(240, 243, 246, 0.52) 100%)",
-                backdropFilter: "blur(14px) saturate(118%)",
-                WebkitBackdropFilter: "blur(14px) saturate(118%)",
-                boxShadow: "0 8px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04), inset 0 1.5px 0px 0px rgba(255, 255, 255, 0.90), inset 0 -1px 0px 0px rgba(180, 190, 205, 0.20)",
-              }}
+              style={cardStyle}
             >
-              {/* Compact cursor-following frosted very-light-green spotlight reflection */}
-              <div
-                className="pointer-events-none absolute inset-0 z-0 rounded-3xl opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 motion-reduce:hidden"
-                style={{
-                  background: "radial-gradient(circle 90px at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(187, 247, 208, 0.62) 0%, rgba(134, 239, 172, 0.25) 35%, transparent 75%)",
-                }}
-                aria-hidden="true"
-              />
-
-              <div className="relative z-10">
-                {/* Icon & Tag */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/45 border border-white/65 text-[#141414] backdrop-blur-sm transition-colors duration-200 group-hover:bg-[#141414] group-hover:text-white">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8A8A8A]">
-                    {feature.tag}
-                  </span>
-                </div>
-
-                {/* Title & Description */}
-                <h3 className="text-lg font-bold text-[#141414] tracking-tight">
-                  {feature.title}
-                </h3>
-                <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-[#5A5A5A]">
-                  {feature.description}
-                </p>
-              </div>
+              <CardInner feature={feature} />
             </motion.div>
           );
         })}
